@@ -1,5 +1,5 @@
 @charset "UTF-8";
-<<<<<<< HEAD
+
 *::after,
 *::before {
   box-sizing: border-box;
@@ -8,7 +8,11 @@
 }
 
 :root {
-  --aqua: #00CCCC;
+  --green: #47F7B6;
+  --white: #F1F2F6;
+  --black: #1D1D1D;
+  --blue: #AEB8FE;
+  --gradient: rgba(241, 242, 246, 0.2);
   font-size: 16px;
 }
 
@@ -16,21 +20,3 @@ body {
   margin: 0;
   padding: 0;
 }
-=======
-
-*::after,
-*::before {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-:root {
-    --aqua: #00CCCC;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-}
->>>>>>> c2995bf0eee7756d959af3801005e4316a6731bf
