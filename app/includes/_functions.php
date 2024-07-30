@@ -142,7 +142,7 @@ function getRouteDetails(PDO $dbCo, int $idRoute): ?array
 }
 
 
-/**
+/** not ready yet
  * Summary of search route By name
  * @param PDO $dbCo
  * @param string $title
@@ -165,7 +165,7 @@ function searchRouteByName(PDO $dbCo, string $title): ?array
 
 
 
-/**
+/**not ready yet
  * constructs a sql request from params of research.
  * example of data $data = [
  *    'title' => "hello",
@@ -176,7 +176,7 @@ function searchRouteByName(PDO $dbCo, string $title): ?array
  * @param array $inputData array of parameters like example.
  * @return string sql request.
  */
-function ConstructSqlSearchRoute($inputData)
+function constructSqlSearchRoute($inputData)
 {
     $data = stripTagsArray($inputData);
     $request = [];
@@ -188,13 +188,13 @@ function ConstructSqlSearchRoute($inputData)
 
     if (isset($data["id_class_route"])) {
         $startRequest = 'SELECT * FROM `route` JOIN categorize
-     USING(id_route) WHERE ';
+     USING (id_route) WHERE ';
         $request[] = 'id_class_route  = ' . $data["id_class_route"];
     }
 
     if (isset($data['title'])) {
 
-        $request[] = ' title Like ' . "%" . $data['title'] . "%";
+        $request[] = ' title Like ' . "'%" . $data['title'] . "%'";
     }
 
 
@@ -205,14 +205,23 @@ function ConstructSqlSearchRoute($inputData)
 
 
 
-    return $startRequest . implode(' AND ', $request);
+    return  $startRequest . implode(' AND ', $request);
 }
 
-function getRouteBySearchParam($dbCo, $data)
-{
 
-    $query = $dbCo->prepare(ConstructSqlSearchRoute($data));
-    $isQueryOk = $query->execute();
+
+function getRoutesBySearchParam(PDO $dbCo, array $data)
+{
+    $request = newConstructSqlSearchRoute($data);
+    // var_dump($request);
+    $query = $dbCo->prepare($request);
+    $isQueryOk = $query->execute([
+        'idClassRoute' => $data["id_class_route"],
+        'title' => $data["title"],
+        'distance' => $data["distance"],
+        'difficulty' => $data["difficulty"]
+
+    ]);
     $routes = $query->fetchAll();
 
     if (!$isQueryOk) {
@@ -220,4 +229,42 @@ function getRouteBySearchParam($dbCo, $data)
         redirectTo();
     }
     return $routes;
+}
+
+
+
+function newConstructSqlSearchRoute($inputData)
+{
+    $data = stripTagsArray($inputData);
+    $request = [];
+    $startRequest = "SELECT * FROM route WHERE";
+    if (empty($data)) {
+        addError("search_ko");
+        redirectTo();
+    }
+
+    if (isset($data["id_class_route"])) {
+        $startRequest = 'SELECT * FROM `route` JOIN categorize
+     USING (id_route) WHERE ';
+        $request[] = 'id_class_route  =  :idClassRoute';
+    }
+
+    if (isset($data['title'])) {
+
+        $request[] = ' title Like ' . "'% :title %'";
+    }
+
+
+    if (isset($data['distance'])) {
+
+        $request[] = ' distance <= :distance';
+    }
+
+    if (isset($data['id_diffuclty'])) {
+
+        $request[] = ' id_diffuclty = :difficulty';
+    }
+
+
+    return  $startRequest . implode(' AND ', $request);
 }
