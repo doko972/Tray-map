@@ -42,50 +42,47 @@ include 'includes/_database.php';
         </nav>
     </header>
     <main>
-<<<<<<< HEAD
-        <h1 class="main-ttl">trailshare - <br> la communauté des amateurs de randonnées et de cyclotourisme</h1>
-=======
+
+        
         <section>
             <h1 class="main-ttl">trailshare - <br> la communauté des amateurs de randonnées et de cyclotourisme</h1>
         </section>
         <!--Create select route-->
         <section class="range-container">
-            <div class="range-nav">
-                <form action="/action_page.php">
-                    <input class="range-search" type="text" placeholder="Search.." name="search">
-                    <!-- <button type="submit"><i class=""></i></button> -->
-                </form>
-            </div>
-            <form>
-                <div class="range-choice">
-                    <label for="distance">Distance</label>
-                    <p>0km</p>
-                    <!-- <input type="range" id="distance" name="distance" min="0" max="100" step="0.01"/> -->
-                    <input type="range" value="distance" min="1" max="100"
-                        oninput="this.nextElementSibling.value = this.value">
-                    <output>100</output>
-                    <p>+ km</p>
-                </div>
-                <div class="range-choice">
-                    <p>Difficulté</p>
-                    <input type="radio" id="easy" name="level" value="easy">
-                    <label for="medium">Facile</label><br>
-                    <input type="radio" id="medium" name="level" value="medium">
-                    <label for="medium">Moyen</label><br>
-                    <input type="radio" id="hard" name="level" value="hard">
-                    <label for="medium">Difficile</label><br>
-                </div>
-                <div class="range-choice">
-                    <p>Mode</p>
-                    <input type="radio" id="onfoot" name="class_route" value="onfoot">
-                    <label for="medium">A Pieds</label><br>
-                    <input type="radio" id="bike" name="class_route" value="bike">
-                    <label for="medium">Vélo</label><br>
-                </div>
-            </form>
-        </section>
-        <!--End of Create select route-->
->>>>>>> c8e0809a328a9677b5c654905c3e6b6ca3eb366d
+    <div class="range-nav">
+        <form action="/action_page.php">
+            <input class="range-search" type="text" placeholder="Search.." name="search">
+        </form>
+    </div>
+
+    <div class="range-options">
+        <div class="range-choice">
+            <label for="distance">Distance:</label>
+            <input type="range" id="distance" min="1" max="100"
+                   oninput="this.nextElementSibling.value = this.value">
+            <output>100</output> km
+        </div>
+
+        <div class="range-choice">
+            <legend>Difficulté:</legend> 
+            <input type="radio" id="easy" name="level" value="easy">
+            <label for="easy">Facile</label><br>
+            <input type="radio" id="medium" name="level" value="medium">
+            <label for="medium">Moyen</label><br>
+            <input type="radio" id="hard" name="level" value="hard">
+            <label for="hard">Difficile</label><br>
+        </div>
+
+        <div class="range-choice">
+            <legend>Mode:</legend>
+            <input type="radio" id="onfoot" name="class_route" value="onfoot">
+            <label for="onfoot">A Pieds</label><br>
+            <input type="radio" id="bike" name="class_route" value="bike">
+            <label for="bike">Vélo</label><br>
+        </div>
+    </div>
+</section>
+      
         <section class="trail-create">
             <h2 class="trail-create-ttl">Créez votre parcours</h2>
             <img class="trail-create-img" src="./img//Rectangle 61.png" alt="cycliste">
@@ -98,13 +95,7 @@ include 'includes/_database.php';
         <section class="trail-card">
 
             <img class="trail-card-img" src="./img//route_4-1.webp" alt="clecy">
-<<<<<<< HEAD
-            <p class="trail-card-txt">CLE Suisse Normande<br> 107 km - Difficile</p>
-            <p class="trail-card-txt">Découvrez ce parcours de vélo de 108,7 km à proximité de Cormelles-le-Royal. Ce
-                parcours emprunte 82 km de routes et 26,7 km de pistes cyclables. Il présente une ascension cumulée de
-                plus de 1160m</p>
-<<<<<<< HEAD
-=======
+
             <div class="trail-info">
                 <p class="trail-card-ttl">CLE Suisse Normande<br> 107 km - Difficile</p>
                 <img src="./img//Vector.png" alt="">
@@ -139,9 +130,7 @@ include 'includes/_database.php';
                 <img src="./img//Walking.png" alt="">
             </div>
             <p class="trail-card-txt">Découvrez ce parcours de marche de 12,5 km à proximité de Saint-Germain-la-Blanche-Herbe. Ce parcours emprunte 9,2 km de routes et 1,3 km de pistes cyclables. Prévoyez environ 3 heures et 20 minutes pour réaliser ce parcours.</p>
->>>>>>> e0954c719ffa1a4cac43e48cfe10bf8c9e29926d
-=======
->>>>>>> c8e0809a328a9677b5c654905c3e6b6ca3eb366d
+
             <button class="btn">Voir la fiche parcours</button>
         </section>
     </main>
