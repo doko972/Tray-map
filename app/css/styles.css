@@ -245,6 +245,8 @@ body {
 .trail-info{
   display: grid;
   grid-template-columns: 70% 30%;
+  justify-content: space-between;
+  align-items: center;
   gap: 2rem;
-  margin-top: 2rem;
+ 
 }
