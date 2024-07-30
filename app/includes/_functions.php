@@ -60,33 +60,38 @@ function validateToken($token)
 /**
  * Gets all the routes. created by (ayk)
  * @param PDO $dbCo database connection
- * @return void
+ * @return array array of routes.
  */
-function getAllroutes(PDO $dbCo): void
+function getAllroutes(PDO $dbCo):array
 {
     $query = $dbCo->prepare("SELECT * FROM `route`;");
     $isQueryOk = $query->execute();
     $routes = $query->fetchAll();
 
     if (!$isQueryOk) {
+        addError('select_ko');
     }
+    return $routes;
+
 }
 
 
 /**
  * Gets details for a route. created by (ayk)
  * @param PDO $dbCo database connection
- * @return void
+ * @return array of details of route.
  */
-function getArouteDetails(PDO $dbCo, int $idRoute): void
+function getArouteDetails(PDO $dbCo, int $idRoute): array
 {
     $query = $dbCo->prepare("SELECT * FROM route WHERE id_route =:idRoute;");
     $isQueryOk = $query->execute(['idRoute' => $idRoute]);
     $routeDetails = $query->fetchAll();
 
     if (!$isQueryOk) {  
-
+        addError('select_ko');
     }
+    return $routeDetails;
+    
 }
 
 

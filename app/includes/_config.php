@@ -12,6 +12,8 @@ $errors = [
     // 'upload_fail' => 'Erreur lors de l\'upload de l\'image.',
     // 'login_fail' => 'Échec de la connexion, vérifiez votre email et votre mot de passe.',
     // 'access_denied' => 'Accès refusé.'
+    'select_ko' => 'error selection'
+
 ];
 
 $messages = [
