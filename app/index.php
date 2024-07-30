@@ -1,12 +1,18 @@
+<?php
+session_start();
+
+include 'includes/_database.php';
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tray-Map</title>
+    <title>Trail-Map</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    
+    <H1>Coucou</H1>
+
 </body>
 </html>
