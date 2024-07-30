@@ -95,3 +95,31 @@ function getRouteDetails(PDO $dbCo, int $idRoute): ?array
 }
 
 
+function searchRouteByName(PDO $dbCo, string $title): ?array
+{
+
+    $query = $dbCo->prepare("SELECT * FROM route WHERE title like :title;");
+    $isQueryOk = $query->execute(['title' => "%".$title."%"]);
+    $routes = $query->fetchAll();
+
+    if (!$isQueryOk) {  
+        addError('select_ko');
+    }
+    return $routes;
+    
+}
+
+
+// function searchRouteByNAme(PDO $dbCo): ?array
+// {
+
+//     $query = $dbCo->prepare("SELECT * FROM route WHERE title like '%Marcos%';");
+//     $isQueryOk = $query->execute();
+//     $routes = $query->fetchAll();
+
+//     if (!$isQueryOk) {  
+//         addError('select_ko');
+//     }
+//     return $routes;
+    
+// }
