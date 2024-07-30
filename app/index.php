@@ -47,11 +47,15 @@ include 'includes/_database.php';
     <footer >
         <div class="footer-container">
     <div class="footer-img">
+        <div class="footer-logo">
         <img src="./img//MinLogo 1.png" alt="logo">
+    </div>
+    <div class="footer-soc-img">
         <img src="./img/X Logo.png" alt="twitter">
         <img src="./img//Logo Instagram.png" alt="instagram">
         <img src="./img//Logo YouTube.png" alt="youtube">
         <img src="./img//LinkedIn.png" alt="linkedin">
+    </div>
     </div>
         <div class="footer-txt">
             <div class="footer-txt-up">
