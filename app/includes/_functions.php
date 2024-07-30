@@ -214,13 +214,14 @@ function getRoutesBySearchParam(PDO $dbCo, array $data)
 {
     $request = newConstructSqlSearchRoute($data);
     // var_dump($request);
-    $query = $dbCo->prepare($request);
+    $query = $dbCo->prepare('SELECT * FROM `route` JOIN categorize
+
+     USING (id_route) WHERE id_class_route  =  :idClassRoute AND  title Like  :title AND  distance <= :distance AND  difficulty = :difficulty' );
     $isQueryOk = $query->execute([
         'idClassRoute' => $data["id_class_route"],
-        'title' => $data["title"],
+        'title' => '%'.$data["title"].'%',
         'distance' => $data["distance"],
         'difficulty' => $data["difficulty"]
-
     ]);
     $routes = $query->fetchAll();
 
@@ -260,9 +261,9 @@ function newConstructSqlSearchRoute($inputData)
         $request[] = ' distance <= :distance';
     }
 
-    if (isset($data['id_diffuclty'])) {
+    if (isset($data['difficulty'])) {
 
-        $request[] = ' id_diffuclty = :difficulty';
+        $request[] = ' difficulty = :difficulty';
     }
 
 
