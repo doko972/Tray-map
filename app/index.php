@@ -1,7 +1,7 @@
 <?php
 session_start();
-
 include 'includes/_database.php';
+var_dump($dbCo);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
