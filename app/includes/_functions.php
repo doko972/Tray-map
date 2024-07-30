@@ -30,7 +30,7 @@ function addError(string $errorMsg): void
     $_SESSION['errorsList'][] = $errorMsg;
 }
 
-function redirectTo(string $url="index.php"): void
+function redirectTo(string $url = "index.php"): void
 {
     if (headers_sent()) {
         echo "<script>location.href='$url';</script>";
@@ -92,6 +92,19 @@ function getHtmlMessages(array $messagesList): string
 
 
 /**
+ * Removes tags from given array values;.
+ *
+ * @param array $data - input values
+ */
+function stripTagsArray(array &$data): array
+{
+    $data = array_map('strip_tags', $data);
+    return $data;
+}
+
+
+
+/**
  * Gets all the published routes(where status = 0). created by (ayk)
  * @param PDO $dbCo database connection
  * @return array array of routes.
@@ -150,10 +163,61 @@ function searchRouteByName(PDO $dbCo, string $title): ?array
 }
 
 
-function GetSearchParam($data)
+
+
+/**
+ * constructs a sql request from params of research.
+ * example of data $data = [
+ *    'title' => "hello",
+ *     'distance' => "5",
+ *    "id_diffuclty" => "2",
+ *    "id_class_route" => "2"
+ * ];
+ * @param array $inputData array of parameters like example.
+ * @return string sql request.
+ */
+function ConstructSqlSearchRoute($inputData)
 {
+    $data = stripTagsArray($inputData);
+    $request = [];
+    $startRequest = "SELECT * FROM route WHERE";
+    if (empty($data)) {
+        addError("search_ko");
+        redirectTo();
+    }
+
+    if (isset($data["id_class_route"])) {
+        $startRequest = 'SELECT * FROM `route` JOIN categorize
+     USING(id_route) WHERE ';
+        $request[] = 'id_class_route  = ' . $data["id_class_route"];
+    }
+
+    if (isset($data['title'])) {
+
+        $request[] = ' title Like ' . "%" . $data['title'] . "%";
+    }
+
+
+    if (isset($data['distance'])) {
+
+        $request[] = ' distance <= ' . $data['distance'];
+    }
+
+
+
+    return $startRequest . implode(' AND ', $request);
 }
 
-function createWhereCondition()
+function getRouteBySearchParam($dbCo, $data)
 {
+
+    $query = $dbCo->prepare(ConstructSqlSearchRoute($data));
+    $isQueryOk = $query->execute();
+    $routes = $query->fetchAll();
+
+    if (!$isQueryOk) {
+        addError('select_ko');
+        redirectTo();
+    }
+    return $routes;
 }

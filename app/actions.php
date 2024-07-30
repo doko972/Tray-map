@@ -4,41 +4,16 @@ include 'includes/_database.php';
 include 'includes/_functions.php';
 include 'includes/_config.php';
 
-$request = [];
-$startRequest="SELECT * FROM route WHERE";
 $data = [
-    // 'title' => "hello",
-    // 'distance' => "5",
-    // "id_diffuclty" => "2",
-    // // "id_class_route" => "2"
+       'title' => "hello",
+       'distance' => "5",
+      "id_diffuclty" => "2",
+      "id_class_route" => "2"
+     ];
 
+var_dump(stripTagsArray($data));
 
-];
-if (empty($data)) {
-    addError("search_ko");
-}
-
-if (isset($data["id_class_route"])) {
-    $startRequest = 'SELECT * FROM `route` JOIN categorize
-     USING(id_route) WHERE ';
-      $request[]='id_class_route  = ' . $data["id_class_route"];
-}
-
-if (isset($data['title'])) {
-
-    $request[] = ' title Like ' . "%" . $data['title'] . "%";
-}
-
-
-if (isset($data['distance'])) {
-
-    $request[] = ' distance <= ' . $data['distance'];
-}
-
-
-
-var_dump($request);
-echo $startRequest.implode(' AND ', $request);
+// echo ConstructSqlSearchRoute($data);
 
 
 
