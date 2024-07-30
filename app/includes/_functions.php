@@ -58,13 +58,13 @@ function validateToken($token)
 
 
 /**
- * Gets all the routes. created by (ayk)
+ * Gets all the published routes(where status = 0). created by (ayk)
  * @param PDO $dbCo database connection
  * @return array array of routes.
  */
 function getAllroutes(PDO $dbCo):?array
 {
-    $query = $dbCo->prepare("SELECT * FROM `route`;");
+    $query = $dbCo->prepare("SELECT * FROM `route` WHERE status = 1;");
     $isQueryOk = $query->execute();
     $routes = $query->fetchAll();
 
@@ -110,16 +110,8 @@ function searchRouteByName(PDO $dbCo, string $title): ?array
 }
 
 
-// function searchRouteByNAme(PDO $dbCo): ?array
-// {
+function createWhereCondition (){
 
-//     $query = $dbCo->prepare("SELECT * FROM route WHERE title like '%Marcos%';");
-//     $isQueryOk = $query->execute();
-//     $routes = $query->fetchAll();
+}
 
-//     if (!$isQueryOk) {  
-//         addError('select_ko');
-//     }
-//     return $routes;
-    
-// }
+
