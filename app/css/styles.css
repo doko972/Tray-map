@@ -22,6 +22,7 @@ body {
   --white: #f1f2f6;
   --black: #1d1d1d;
   --blue: #aeb8fe;
+  --grey: #DEDEDE;
   --gradient: rgba(67, 69, 77, 0.521);
   font-size: 16px;
 }
@@ -206,8 +207,7 @@ body {
   padding: 2rem;
 }
 .trail-create-img {
-  height: 308px;
-  width: 339px;
+  width: 100%;
 }
 .trail-create-ttl,
 .trail-create-txt {
@@ -237,3 +237,28 @@ body {
   color: var(--black);
   font-family: "Broaek - Thin";
 }
+
+/*RANGE*/
+.range-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--grey);
+  border-radius: 28px;
+}
+.range-nav{
+  display: flex;
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  justify-content: center;
+}
+.range-choice{
+  display: flex;
+}
+.range-search{
+  width: 300px;
+  height: 56px;
+  background-color: var(--grey);
+  border-color: none;
+}
+

@@ -42,18 +42,61 @@ include 'includes/_database.php';
         </nav>
     </header>
     <main>
-        <h1 class="main-ttl">trailshare - <br> la communauté des amateurs de randonnées et de cyclotourisme</h1>
-
+        <section>
+            <h1 class="main-ttl">trailshare - <br> la communauté des amateurs de randonnées et de cyclotourisme</h1>
+        </section>
+        <!--Create select route-->
+        <section class="range-container">
+            <div class="range-nav">
+                <form action="/action_page.php">
+                    <input class="range-search" type="text" placeholder="Search.." name="search">
+                    <!-- <button type="submit"><i class=""></i></button> -->
+                </form>
+            </div>
+            <form>
+                <div class="range-choice">
+                    <label for="distance">Distance</label>
+                    <p>0km</p>
+                    <!-- <input type="range" id="distance" name="distance" min="0" max="100" step="0.01"/> -->
+                    <input type="range" value="distance" min="1" max="100"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output>100</output>
+                    <p>+ km</p>
+                </div>
+                <div class="range-choice">
+                    <p>Difficulté</p>
+                    <input type="radio" id="easy" name="level" value="easy">
+                    <label for="medium">Facile</label><br>
+                    <input type="radio" id="medium" name="level" value="medium">
+                    <label for="medium">Moyen</label><br>
+                    <input type="radio" id="hard" name="level" value="hard">
+                    <label for="medium">Difficile</label><br>
+                </div>
+                <div class="range-choice">
+                    <p>Mode</p>
+                    <input type="radio" id="onfoot" name="class_route" value="onfoot">
+                    <label for="medium">A Pieds</label><br>
+                    <input type="radio" id="bike" name="class_route" value="bike">
+                    <label for="medium">Vélo</label><br>
+                </div>
+            </form>
+        </section>
+        <!--End of Create select route-->
         <section class="trail-create">
             <h2 class="trail-create-ttl">Créez votre parcours</h2>
             <img class="trail-create-img" src="./img//Rectangle 61.png" alt="cycliste">
-            <p class="trail-create-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi modi magni reprehenderit quibusdam quod deserunt laborum natus cumque harum nisi, quia aut architecto qui dicta amet repellendus numquam obcaecati in odio. Illum, blanditiis animi magni harum tempore explicabo alias ducimus aspernatur, enim corrupti dolorum doloribus atque delectus! Fugit, aliquid tenetur?</p>
+            <p class="trail-create-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi modi magni
+                reprehenderit quibusdam quod deserunt laborum natus cumque harum nisi, quia aut architecto qui dicta
+                amet repellendus numquam obcaecati in odio. Illum, blanditiis animi magni harum tempore explicabo alias
+                ducimus aspernatur, enim corrupti dolorum doloribus atque delectus! Fugit, aliquid tenetur?</p>
             <button class="trail-create-btn btn">Créer un parcours</button>
         </section>
         <section class="trail-card">
             <img class="trail-card-img" src="./img//route_4-1.webp" alt="clecy">
             <p class="trail-card-txt">CLE Suisse Normande<br> 107 km - Difficile</p>
-            <p class="trail-card-txt">Découvrez ce parcours de vélo de 108,7 km à proximité de Cormelles-le-Royal. Ce parcours emprunte 82 km de routes et 26,7 km de pistes cyclables. Il présente une ascension cumulée de plus de 1160m</p>
+            <p class="trail-card-txt">Découvrez ce parcours de vélo de 108,7 km à proximité de Cormelles-le-Royal. Ce
+                parcours emprunte 82 km de routes et 26,7 km de pistes cyclables. Il présente une ascension cumulée de
+                plus de 1160m</p>
             <button class="btn">Voir la fiche parcours</button>
         </section>
     </main>
