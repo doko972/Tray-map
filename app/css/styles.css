@@ -174,7 +174,7 @@ body {
   border-top: var(--white) 1px solid;
   display: grid;
   grid-template-rows: 30% 30% 30%;
- padding: 2rem;
+  padding: 2rem;
   margin-bottom: 0;
 }
 
@@ -189,16 +189,38 @@ body {
   color: var(--white);
   font-size: 1rem;
 }
-.footer-txt-dwn{
+.footer-txt-dwn {
   margin-bottom: 5rem;
 }
-.footer-img{
+.footer-img {
   display: flex;
   justify-content: space-between;
 }
-.footer-soc-img{
+.footer-soc-img {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   height: 1.5rem;
+}
+.trail-create {
+  padding: 2rem;
+}
+.trail-create-img {
+  height: 308px;
+  width: 339px;
+}
+.trail-create-ttl,
+.trail-create-txt {
+  font-family: "Broaek - Thin";
+  color: var(--white);
+  margin-bottom: 3rem;
+}
+.trail-create-btn {
+  background-color: var(--green);
+  border: none;
+  border-radius: 50px;
+  color: var(--black);
+  font-size: 1rem;
+  padding: 10px 24px 10px 24px;
+  margin-top: 1rem;
 }
