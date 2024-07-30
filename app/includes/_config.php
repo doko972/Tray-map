@@ -21,4 +21,3 @@ $messages = [
     // 'logout_success' => 'Déconnexion réussie.',
     // 'role_update_success' => 'Rôle de l\'utilisateur mis à jour avec succès.'
 ];
-?>
