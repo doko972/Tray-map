@@ -10,7 +10,7 @@ include 'includes/_database.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trail-Map</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
 </head>
 
 <body>
@@ -18,12 +18,12 @@ include 'includes/_database.php';
     <header class="header-container">
         <img class="header-logo" src="./img/MinLogo 1.png" alt="logo site">
         <div class="header-right">
-        <img src="./img/Generic avatar.png" alt="avatar user">
+            <img src="./img/Generic avatar.png" alt="avatar user">
 
-        <div class="menu-toggle" id="burger-menu">
-            <span class="menu-toggle-bar"></span>
+            <div class="menu-toggle" id="burger-menu">
+                <span class="menu-toggle-bar"></span>
+            </div>
         </div>
-    </div>
         <nav id="menu">
             <ul class="menu-container">
                 <li class="menu-container-itm">
@@ -44,8 +44,9 @@ include 'includes/_database.php';
     <main>
         <h1 class="main-ttl">trailshare - la communauté dees amateurs de randonnées et de cyclotourisme</h1>
     </main>
+
     <footer>
-        
+
     </footer>
     <script src="./js/burger.js"></script>
 </body>
