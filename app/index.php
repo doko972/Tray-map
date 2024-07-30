@@ -53,11 +53,49 @@ include 'includes/_database.php';
             <button class="trail-create-btn btn">Créer un parcours</button>
         </section>
         <section class="trail-card">
+
             <img class="trail-card-img" src="./img//route_4-1.webp" alt="clecy">
+<<<<<<< HEAD
             <p class="trail-card-txt">CLE Suisse Normande<br> 107 km - Difficile</p>
             <p class="trail-card-txt">Découvrez ce parcours de vélo de 108,7 km à proximité de Cormelles-le-Royal. Ce
                 parcours emprunte 82 km de routes et 26,7 km de pistes cyclables. Il présente une ascension cumulée de
                 plus de 1160m</p>
+=======
+            <div class="trail-info">
+                <p class="trail-card-ttl">CLE Suisse Normande<br> 107 km - Difficile</p>
+                <img src="./img//Vector.png" alt="">
+            </div>
+            <p class="trail-card-txt">Découvrez ce parcours de vélo de 108,7 km à proximité de Cormelles-le-Royal. Ce parcours emprunte 82 km de routes et 26,7 km de pistes cyclables. Il présente une ascension cumulée de plus de 1160m</p>
+
+            <button class="btn">Voir la fiche parcours</button>
+        </section>
+        <section class="trail-card">
+            <img class="trail-card-img" src="./img//route_1-1.webp" alt="clecy">
+            <div class="trail-info">
+                <p class="trail-card-ttl">Vallée de L'Aise au départ de Ifs<br> 50 km - Moyen</p>
+                <img src="./img//Vector.png" alt="">
+            </div>
+            <p class="trail-card-txt">Découvrez ce parcours de vélo de 50,2 km à proximité de Ifs. Il présente une ascension cumulée de plus de 410m.</p>
+            <button class="btn">Voir la fiche parcours</button>
+        </section>
+        <section class="trail-card">
+            <img class="trail-card-img" src="./img//route_4-1.webp" alt="clecy">
+            <div class="trail-info">
+                <p class="trail-card-ttl">Louvigny / Le Rocreuil<br> 11 km - Facile</p>
+                <img src="./img//Walking.png" alt="">
+            </div>
+            <p class="trail-card-txt">Découvrez ce parcours de marche nordique de 11 km à proximité de Louvigny. Ce parcours emprunte 5 km de chemins et 2,2 km de pistes forestières.</p>
+            <button class="btn">Voir la fiche parcours</button>
+        </section>
+
+        <section class="trail-card">
+            <img class="trail-card-img" src="./img//route_4-1.webp" alt="clecy">
+            <div class="trail-info">
+                <p class="trail-card-ttl">Abbaye d'Ardennes au jardin public de Caen<br> 12.5 km - Moyen</p>
+                <img src="./img//Walking.png" alt="">
+            </div>
+            <p class="trail-card-txt">Découvrez ce parcours de marche de 12,5 km à proximité de Saint-Germain-la-Blanche-Herbe. Ce parcours emprunte 9,2 km de routes et 1,3 km de pistes cyclables. Prévoyez environ 3 heures et 20 minutes pour réaliser ce parcours.</p>
+>>>>>>> e0954c719ffa1a4cac43e48cfe10bf8c9e29926d
             <button class="btn">Voir la fiche parcours</button>
         </section>
     </main>
