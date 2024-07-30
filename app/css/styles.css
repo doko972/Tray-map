@@ -1,5 +1,10 @@
 @charset "UTF-8";
-
+body{
+  background:  linear-gradient(240deg, rgba(17, 17, 17, 0.815) 10% , rgb(0, 0, 0) 90% ) no-repeat center center fixed;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
 *::after,
 *::before {
   box-sizing: border-box;
@@ -8,11 +13,11 @@
 }
 
 :root {
-  --green: #47F7B6;
-  --white: #F1F2F6;
-  --black: #1D1D1D;
-  --blue: #AEB8FE;
-  --gradient: rgba(241, 242, 246, 0.2);
+  --green: #47f7b6;
+  --white: #f1f2f6;
+  --black: #1d1d1d;
+  --blue: #aeb8fe;
+  --gradient: rgba(67, 69, 77, 0.521);
   font-size: 16px;
 }
 
@@ -38,7 +43,127 @@
   src: url("/fonts/Broaek- Regular.ttf") format("woff2");
 }
 
-body {
-  margin: 0;
-  padding: 0;
+
+
+.header-container{
+  background-color: var(--black);
+  display: grid;
+  grid-template-columns: 70% 30%;
+  height: 92px;
+ 
+}
+.header-right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ margin-top: -10px;
+ margin-right: 50px;
+ gap: 50px;
+}
+.header-logo{
+ margin-top: 30px;
+ margin-left: 30px;
+  
+  
+}
+.menu-toggle {
+  height: 16px;
+  width: 16px;
+  margin-bottom: 10px;
+   position: relative;
+  overflow: visible;
+  z-index: 2;
+ 
+
+
+.menu-toggle-bar,
+.menu-toggle-bar:before,
+.menu-toggle-bar:after {
+  background: var(--green );
+  display: block;
+  height: 3px;
+  opacity: 1;
+  position: absolute;
+  transition: 0.3s ease-in-out;
+}
+
+.menu-toggle-bar:before,
+.menu-toggle-bar:after {
+  content: "";
+}
+.menu-toggle-bar:before {
+  left: 0px;
+  top: -10px;
+  width: 27px;
+}
+.menu-toggle-bar {
+  right: 0px;
+  top: 13px;
+  width: 27px;
+}
+.menu-toggle-bar:after {
+  left: 0px;
+  top: 10px;
+  width: 27px;
+}
+&.close {
+  .menu-toggle-bar:before {
+    top: 0px;
+    transform: rotate(90deg);
+    width: 27px;
+  }
+  .menu-toggle-bar {
+    transform: rotate(-45deg);
+    top: 13px;
+    width: 27px;
+  }
+  .menu-toggle-bar:after {
+    top: 0px;
+    left: 0;
+    transform: rotate(90deg);
+    opacity: 0;
+    width: 0;
+  }
+}
+}
+
+#menu {
+  z-index: 1;
+  min-width: 100%;
+  min-height: 70%;
+  position: fixed;
+  top: 0;
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  text-align: center;
+  padding-top: 20px;
+  transition: all 0.2s ease-in-out;
+
+  &.overlay {
+    visibility: visible;
+    opacity: 1;
+    padding-top: 100px;
+    background: rgba(167, 162, 162, 0.411);
+    border-radius: 1rem;
+  }
+  .menu-container {
+    padding: 0;
+  }
+  .menu-container-lnk {
+    color: var(--white);
+    display: block;
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-decoration: none;
+  }
+}
+.main-ttl{
+  color: var(--green);
+  font-family: "Broaek - Thin";
+  font-size: 2rem;
+  text-align: left;
+  text-transform: uppercase; 
+  margin-left: 2rem;
+  margin-top: 5rem;
 }
