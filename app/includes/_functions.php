@@ -177,9 +177,16 @@ function searchRouteByName(PDO $dbCo, string $title): ?array
  * @param array $inputData array of parameters like example.
  * @return string sql request.
  */
-function constructSqlSearchRoute($inputData)
+
+/**
+ * construct sql request from search params of routes.
+ * @param array $inputData
+ * @return array
+ */
+function constructSqlSearchRoute($inputData):array
 {
     $data = stripTagsArray($inputData);
+    $bind = [];
     $request = [];
     $startRequest = "SELECT * FROM route WHERE";
     if (empty($data)) {
@@ -191,41 +198,41 @@ function constructSqlSearchRoute($inputData)
         $startRequest = 'SELECT * FROM `route` JOIN categorize
      USING (id_route) WHERE ';
         $request[] = 'id_class_route  =  :idClassRoute';
+        $bind['idClassRoute'] = $data["id_class_route"];
     }
 
     if (isset($data['title'])) {
 
         $request[] = ' title Like :title ';
+        $bind['title'] = '%' . $data["title"] . '%';
     }
 
 
     if (isset($data['distance'])) {
 
         $request[] = ' distance <= :distance';
+        $bind['distance'] = $data["distance"];
     }
 
     if (isset($data['difficulty'])) {
 
         $request[] = ' difficulty = :difficulty';
+        $bind['difficulty'] = $data["difficulty"];
     }
 
-
-    return  $startRequest . implode(' AND ', $request);
+    $finalData["sqlRequest"] = $startRequest . implode(' AND ', $request);
+    $finalData["bind"] = $bind;
+    return  $finalData;
 }
 
 
 
-function getRoutesBySearchParam(PDO $dbCo, array $data)
+function getRoutesBySearchParam(PDO $dbCo, array $data):array
 {
-    $request = constructSqlSearchRoute($data);
+    $finalData = constructSqlSearchRoute($data);
     // var_dump($request);
-    $query = $dbCo->prepare($request);
-    $isQueryOk = $query->execute([
-        'idClassRoute' => $data["id_class_route"],
-        'title' => '%' . $data["title"] . '%',
-        'distance' => $data["distance"],
-        'difficulty' => $data["difficulty"]
-    ]);
+    $query = $dbCo->prepare($finalData["sqlRequest"]);
+    $isQueryOk = $query->execute($finalData["bind"]);
     $routes = $query->fetchAll();
 
     if (!$isQueryOk) {

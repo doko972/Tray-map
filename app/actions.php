@@ -5,8 +5,9 @@ include 'includes/_functions.php';
 include 'includes/_config.php';
 
 $data = [
-    'title' => "Marcos",
-    'distance' => "5",
+    // 'title' => "Marcos",
+    // 'distance' => "5"
+
     "difficulty" => "1",
     "id_class_route" => "1"
 ];
@@ -16,7 +17,7 @@ var_dump (getRoutesBySearchParam($dbCo, $data));
 
 //  var_dump(stripTagsArray($data));
 
-// echo newconstructSqlSearchRoute($data);
+// var_dump( constructSqlSearchRoute($data)["bind"]);
 
 
 
