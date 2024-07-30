@@ -44,6 +44,9 @@ include 'includes/_database.php';
     <main>
         <h1 class="main-ttl">trailshare - la communauté dees amateurs de randonnées et de cyclotourisme</h1>
     </main>
+    <footer>
+        
+    </footer>
     <script src="./js/burger.js"></script>
 </body>
 

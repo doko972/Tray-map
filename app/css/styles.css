@@ -50,6 +50,7 @@ body{
   display: grid;
   grid-template-columns: 70% 30%;
   height: 92px;
+  border-bottom: var(--white) 1px solid;
  
 }
 .header-right{
@@ -129,8 +130,8 @@ body{
 
 #menu {
   z-index: 1;
-  min-width: 100%;
-  min-height: 70%;
+  min-width: 90%;
+  min-height: 50%;
   position: fixed;
   top: 0;
   height: 0;
@@ -144,18 +145,19 @@ body{
     visibility: visible;
     opacity: 1;
     padding-top: 100px;
-    background: rgba(167, 162, 162, 0.411);
+    background: var(--black);
     border-radius: 1rem;
   }
   .menu-container {
     padding: 0;
   }
   .menu-container-lnk {
-    color: var(--white);
+    color: var(--green);
     display: block;
-    font-size: 32px;
+    font-size: 2rem;
     margin-bottom: 30px;
     text-decoration: none;
+    font-family: "Broaek - Thin";
   }
 }
 .main-ttl{
