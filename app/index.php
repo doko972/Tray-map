@@ -41,6 +41,7 @@ include 'includes/_database.php';
         </nav>
     </header>
     <main>
+
         <section>
             <h1 class="main-ttl">trailshare - <br> la communauté des amateurs de randonnées et de cyclotourisme</h1>
         </section>
@@ -49,21 +50,18 @@ include 'includes/_database.php';
             <div class="range-nav">
                 <form action="/action_page.php">
                     <input class="range-search" type="text" placeholder="Search.." name="search">
-                    <!-- <button type="submit"><i class=""></i></button> -->
                 </form>
             </div>
-            <form>
+            <div class="range-options">
                 <div class="range-choice">
-                    <label for="distance">Distance</label>
-                    <p>0km</p>
-                    <!-- <input type="range" id="distance" name="distance" min="0" max="100" step="0.01"/> -->
-                    <input type="range" value="distance" min="1" max="100"
+                    <label for="distance">Distance:</label>
+                    <input type="range" id="distance" min="1" max="100"
                         oninput="this.nextElementSibling.value = this.value">
-                    <output>100</output>
-                    <p>+ km</p>
+                    <output>100</output> km
                 </div>
+
                 <div class="range-choice">
-                    <p>Difficulté</p>
+                    <legend>Difficulté:</legend>
                     <input type="radio" id="easy" name="level" value="easy">
                     <label for="easy">Facile</label><br>
                     <input type="radio" id="medium" name="level" value="medium">
@@ -71,16 +69,16 @@ include 'includes/_database.php';
                     <input type="radio" id="hard" name="level" value="hard">
                     <label for="hard">Difficile</label><br>
                 </div>
+
                 <div class="range-choice">
-                    <p>Mode</p>
+                    <legend>Mode:</legend>
                     <input type="radio" id="onfoot" name="class_route" value="onfoot">
                     <label for="onfoot">A Pieds</label><br>
                     <input type="radio" id="bike" name="class_route" value="bike">
                     <label for="bike">Vélo</label><br>
                 </div>
-            </form>
+            </div>
         </section>
-        <!--End of Create select route-->
         <section class="trail-create">
             <h2 class="trail-create-ttl">Créez votre parcours</h2>
             <img class="trail-create-img" src="./img//Rectangle 61.png" alt="cycliste">
