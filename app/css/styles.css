@@ -16,6 +16,28 @@
   font-size: 16px;
 }
 
+@font-face {
+  font-display: swap;
+  font-family: "Broaek - Thin";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Broaek - Thin.ttf") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Broaek- Outline";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Broaek- Outline.ttf") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Broaek - Thin";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Broaek- Regular.ttf") format("woff2");
+}
+
 body {
   margin: 0;
   padding: 0;
