@@ -1,7 +1,7 @@
 <?php
 session_start();
-
 include 'includes/_database.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -18,12 +18,12 @@ include 'includes/_database.php';
     <header class="header-container">
         <img class="header-logo" src="./img/MinLogo 1.png" alt="logo site">
         <div class="header-right">
-        <img src="./img/Generic avatar.png" alt="avatar user">
+            <img src="./img/Generic avatar.png" alt="avatar user">
 
-        <div class="menu-toggle" id="burger-menu">
-            <span class="menu-toggle-bar"></span>
+            <div class="menu-toggle" id="burger-menu">
+                <span class="menu-toggle-bar"></span>
+            </div>
         </div>
-    </div>
         <nav id="menu">
             <ul class="menu-container">
                 <li class="menu-container-itm">
@@ -42,10 +42,31 @@ include 'includes/_database.php';
         </nav>
     </header>
     <main>
-        <h1 class="main-ttl">trailshare - <br> la communauté dees amateurs de randonnées et de cyclotourisme</h1>
+        <h1 class="main-ttl">trailshare - <br> la communauté des amateurs de randonnées et de cyclotourisme</h1>
     </main>
-    <footer>
-
+    <footer >
+        <div class="footer-container">
+    <div class="footer-img">
+        <img src="./img//MinLogo 1.png" alt="logo">
+        <img src="./img/X Logo.png" alt="twitter">
+        <img src="./img//Logo Instagram.png" alt="instagram">
+        <img src="./img//Logo YouTube.png" alt="youtube">
+        <img src="./img//LinkedIn.png" alt="linkedin">
+    </div>
+        <div class="footer-txt">
+            <div class="footer-txt-up">
+                <a class="footer-lnk" href="#">Politique de confidentialité</a><br>
+                <a class="footer-lnk" href="#">Cookies</a><br>
+                <a class="footer-lnk" href="#">Réglement</a>
+            </div>
+            <div class="footer-txt-dwn">
+                <a class="footer-lnk" href="#">Nopus contacter</a><br>
+                <a class="footer-lnk" href="#">Foire aux questions</a><br>
+                <a class="footer-lnk" href="#">Créer un compte</a><br>
+                <a class="footer-lnk" href="#">Signaler un contenu</a>
+            </div>
+        </div>
+    </div>
     </footer>
     <script src="./js/burger.js"></script>
 </body>

@@ -1,0 +1,81 @@
+CREATE TABLE class_route(
+   id_class_route INT AUTO_INCREMENT,
+   class_name VARCHAR(50) NOT NULL,
+   PRIMARY KEY(id_class_route)
+);
+
+CREATE TABLE role(
+   id_role INT AUTO_INCREMENT,
+   role_name VARCHAR(10) NOT NULL,
+   PRIMARY KEY(id_role)
+);
+
+CREATE TABLE img(
+   id_img INT AUTO_INCREMENT,
+   URL VARCHAR(255) NOT NULL,
+   PRIMARY KEY(id_img)
+);
+
+CREATE TABLE person(
+   id_person INT AUTO_INCREMENT,
+   photo VARCHAR(255),
+   bio TEXT,
+   email VARCHAR(255) NOT NULL,
+   password VARCHAR(255) NOT NULL,
+   locate VARCHAR(255),
+   create_date DATETIME NOT NULL,
+   id_role INT NOT NULL,
+   PRIMARY KEY(id_person),
+   UNIQUE(email),
+   FOREIGN KEY(id_role) REFERENCES role(id_role)
+);
+
+CREATE TABLE route(
+   id_route INT AUTO_INCREMENT,
+   createby VARCHAR(50) NOT NULL,
+   time_stamp DATETIME NOT NULL AUTOINCREMENT,
+   title VARCHAR(100) NOT NULL,
+   distance TINYINT UNSIGNED NOT NULL,
+   difficulty VARCHAR(50) NOT NULL,
+   status BOOLEAN NOT NULL,
+   id_person INT NOT NULL,
+   PRIMARY KEY(id_route),
+   FOREIGN KEY(id_person) REFERENCES person(id_person)
+);
+
+CREATE TABLE location(
+   id_location INT AUTO_INCREMENT,
+   name VARCHAR(100) NOT NULL,
+   longitude DECIMAL(3,3) NOT NULL,
+   latitude DECIMAL(3,3) NOT NULL,
+   id_route INT NOT NULL,
+   PRIMARY KEY(id_location),
+   FOREIGN KEY(id_route) REFERENCES route(id_route)
+);
+
+CREATE TABLE comment(
+   id_comment INT AUTO_INCREMENT,
+   comment_text TEXT,
+   comment_rate TINYINT,
+   id_route INT NOT NULL,
+   id_person INT NOT NULL,
+   PRIMARY KEY(id_comment),
+   FOREIGN KEY(id_route) REFERENCES route(id_route),
+   FOREIGN KEY(id_person) REFERENCES person(id_person)
+);
+
+CREATE TABLE illustrer(
+   id_route INT,
+   id_img INT,
+   PRIMARY KEY(id_route, id_img),
+   FOREIGN KEY(id_route) REFERENCES route(id_route),
+   FOREIGN KEY(id_img) REFERENCES img(id_img)
+);
+
+CREATE TABLE categorize(
+   id_route INT,
+   id_class_route INT,
+   PRIMARY KEY(id_route, id_class_route),
+   FOREIGN KEY(id_route) REFERENCES route(id_route),
+   FOREIGN KEY(id_class_route) REFERENCES class_route(id_class_route)
+);
