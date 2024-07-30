@@ -22,14 +22,15 @@ function isTokenOk(?array $data = null): bool
     return isset($_SESSION['token']) && isset($data['token']) && $_SESSION['token'] === $data['token'];
 }
 
-function addError(string $errorMsg): void {
+function addError(string $errorMsg): void
+{
     if (!isset($_SESSION['errorsList'])) {
         $_SESSION['errorsList'] = [];
     }
     $_SESSION['errorsList'][] = $errorMsg;
 }
 
-function redirectTo(string $url): void
+function redirectTo(string $url="index.php"): void
 {
     if (headers_sent()) {
         echo "<script>location.href='$url';</script>";
@@ -55,6 +56,39 @@ function validateToken($token)
     return $token === $_SESSION['token'];
 }
 
+/**
+ * Get HTML to display errors available in user SESSION
+ *
+ * @param array $errorsList - Available errors list
+ * @return string HTMl to display errors
+ */
+function getHtmlErrors(array $errorsList): string
+{
+    if (!empty($_SESSION['errorsList'])) {
+        $errors = $_SESSION['errorsList'];
+        unset($_SESSION['errorsList']);
+        return '<ul class="notif-error">'
+            . implode(array_map(fn ($e) => '<li>' . $errorsList[$e] . '</li>', $errors))
+            . '</ul>';
+    }
+    return '';
+}
+
+/**
+ * Get HTML to display messages available in user SESSION
+ *
+ * @param array $messagesList - Available Messages list
+ * @return string HTML to display messages
+ */
+function getHtmlMessages(array $messagesList): string
+{
+    if (isset($_SESSION['msg'])) {
+        $m = $_SESSION['msg'];
+        unset($_SESSION['msg']);
+        return '<p class="notif-success">' . $messagesList[$m] . '</p>';
+    }
+    return '';
+}
 
 
 /**
@@ -62,7 +96,7 @@ function validateToken($token)
  * @param PDO $dbCo database connection
  * @return array array of routes.
  */
-function getAllroutes(PDO $dbCo):?array
+function getAllroutes(PDO $dbCo): ?array
 {
     $query = $dbCo->prepare("SELECT * FROM `route` WHERE status = 1;");
     $isQueryOk = $query->execute();
@@ -70,9 +104,9 @@ function getAllroutes(PDO $dbCo):?array
 
     if (!$isQueryOk) {
         addError('select_ko');
+        redirectTo();
     }
     return $routes;
-
 }
 
 
@@ -87,31 +121,39 @@ function getRouteDetails(PDO $dbCo, int $idRoute): ?array
     $isQueryOk = $query->execute(['idRoute' => $idRoute]);
     $routeDetails = $query->fetchAll();
 
-    if (!$isQueryOk) {  
+    if (!$isQueryOk) {
         addError('select_ko');
+        redirectTo();
     }
     return $routeDetails;
-    
 }
 
 
+/**
+ * Summary of search route By name
+ * @param PDO $dbCo
+ * @param string $title
+ * @return array
+ */
 function searchRouteByName(PDO $dbCo, string $title): ?array
 {
 
     $query = $dbCo->prepare("SELECT * FROM route WHERE title like :title;");
-    $isQueryOk = $query->execute(['title' => "%".$title."%"]);
+    $isQueryOk = $query->execute(['title' => "%" . $title . "%"]);
     $routes = $query->fetchAll();
 
-    if (!$isQueryOk) {  
+    if (!$isQueryOk) {
         addError('select_ko');
+        redirectTo();
     }
     return $routes;
-    
 }
 
 
-function createWhereCondition (){
-
+function GetSearchParam($data)
+{
 }
 
-
+function createWhereCondition()
+{
+}
