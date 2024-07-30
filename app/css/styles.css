@@ -257,8 +257,8 @@ body {
   flex-direction: column;
   background-color: var(--grey); 
   border-radius: 1.5rem;
-  padding: 1.5rem; 
-  margin: 2rem;
+  padding: .5rem; 
+  margin: 1.5rem;
 }
 
 .range-options { 
@@ -291,5 +291,13 @@ body {
 
 label {
   margin-right: 0.5rem; 
+}
+.range-btn{
+  width: 115px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 5.5rem;
 }
 

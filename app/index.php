@@ -51,7 +51,7 @@ include 'includes/_database.php';
         <section class="range-container">
     <div class="range-nav">
         <form action="/action_page.php">
-            <input class="range-search" type="text" placeholder="Search.." name="search">
+            <input class="range-search" type="text" placeholder="Search.." name="search">   
         </form>
     </div>
 
@@ -80,6 +80,7 @@ include 'includes/_database.php';
             <input type="radio" id="bike" name="class_route" value="bike">
             <label for="bike">Vélo</label><br>
         </div>
+        <button class="range-btn btn" type="submit">Rechercher</button>
     </div>
 </section>
       
