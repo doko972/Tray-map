@@ -62,7 +62,7 @@ function validateToken($token)
  * @param PDO $dbCo database connection
  * @return array array of routes.
  */
-function getAllroutes(PDO $dbCo):array
+function getAllroutes(PDO $dbCo):?array
 {
     $query = $dbCo->prepare("SELECT * FROM `route`;");
     $isQueryOk = $query->execute();
@@ -81,7 +81,7 @@ function getAllroutes(PDO $dbCo):array
  * @param PDO $dbCo database connection
  * @return array of details of route.
  */
-function getArouteDetails(PDO $dbCo, int $idRoute): array
+function getRouteDetails(PDO $dbCo, int $idRoute): ?array
 {
     $query = $dbCo->prepare("SELECT * FROM route WHERE id_route =:idRoute;");
     $isQueryOk = $query->execute(['idRoute' => $idRoute]);
