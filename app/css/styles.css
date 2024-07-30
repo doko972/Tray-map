@@ -215,7 +215,7 @@ body {
   color: var(--white);
   margin-bottom: 3rem;
 }
-.trail-create-btn {
+.btn {
   background-color: var(--green);
   border: none;
   border-radius: 50px;
@@ -223,4 +223,18 @@ body {
   font-size: 1rem;
   padding: 10px 24px 10px 24px;
   margin-top: 1rem;
+}
+.trail-card{
+  padding: 10px 24px 10px 24px;
+  background-color: var(--white);
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+.trail-card-img {
+  height: 247px;
+  width: 328px;
+} 
+.trail-card-txt{
+  color: var(--black);
+  font-family: "Broaek - Thin";
 }

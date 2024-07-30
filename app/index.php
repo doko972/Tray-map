@@ -50,6 +50,12 @@ include 'includes/_database.php';
             <p class="trail-create-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi modi magni reprehenderit quibusdam quod deserunt laborum natus cumque harum nisi, quia aut architecto qui dicta amet repellendus numquam obcaecati in odio. Illum, blanditiis animi magni harum tempore explicabo alias ducimus aspernatur, enim corrupti dolorum doloribus atque delectus! Fugit, aliquid tenetur?</p>
             <button class="trail-create-btn btn">Créer un parcours</button>
         </section>
+        <section class="trail-card">
+            <img class="trail-card-img" src="./img//route_4-1.webp" alt="clecy">
+            <p class="trail-card-txt">CLE Suisse Normande<br> 107 km - Difficile</p>
+            <p class="trail-card-txt">Découvrez ce parcours de vélo de 108,7 km à proximité de Cormelles-le-Royal. Ce parcours emprunte 82 km de routes et 26,7 km de pistes cyclables. Il présente une ascension cumulée de plus de 1160m</p>
+            <button class="btn">Voir la fiche parcours</button>
+        </section>
     </main>
     <footer>
         <div class="footer-container">
