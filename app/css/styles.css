@@ -231,8 +231,7 @@ body {
   border-radius: 0.5rem;
 }
 .trail-card-img {
-  height: 247px;
-  width: 328px;
+  width: 100%;
 } 
 .trail-card-txt{
   color: var(--black);
