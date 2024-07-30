@@ -82,9 +82,27 @@ function getAllroutes(PDO $dbCo): void
 function getArouteDetails(PDO $dbCo, int $idRoute): void
 {
     $query = $dbCo->prepare("SELECT * FROM route WHERE id_route =:idRoute;");
-    $isQueryOk = $query->execute();
-    $routeDetails = $query->fetchAll(['idRoute' => $idRoute]);
+    $isQueryOk = $query->execute(['idRoute' => $idRoute]);
+    $routeDetails = $query->fetchAll();
 
-    if (!$isQueryOk) {
+    if (!$isQueryOk) {  
+
+    }
+}
+
+
+/**
+ * Gets details for a route. created by (ayk)
+ * @param PDO $dbCo database connection
+ * @return void
+ */
+function searchRoute(PDO $dbCo): void
+{
+    $query = $dbCo->prepare("SELECT * FROM route WHERE id_route =:idRoute;");
+    $isQueryOk = $query->execute(['idRoute' => $idRoute]);
+    $routeDetails = $query->fetchAll();
+
+    if (!$isQueryOk) {  
+
     }
 }
