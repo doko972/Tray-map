@@ -261,7 +261,7 @@ function constructSqlSearchRoute($data): array
         $startRequest = 'SELECT * FROM `route` JOIN categorize
      USING (id_route) WHERE ';
         $request[] = 'id_class_route  =  :idClassRoute';
-        $bind['idClassRoute'] = $data["class_route"];
+        $bind['idClassRoute'] = intval($data["class_route"]);
     }
 
     if (isset($data['title'])) {
@@ -274,13 +274,13 @@ function constructSqlSearchRoute($data): array
     if (isset($data['distance'])) {
 
         $request[] = ' distance <= :distance';
-        $bind['distance'] = $data["distance"];
+        $bind['distance'] = intval($data["distance"]);
     }
 
     if (isset($data['difficulty'])) {
 
         $request[] = ' difficulty = :difficulty';
-        $bind['difficulty'] = $data["difficulty"];
+        $bind['difficulty'] = intval($data["difficulty"]);
     }
 
     $finalData["sqlRequest"] = $startRequest . implode(' AND ', $request);
