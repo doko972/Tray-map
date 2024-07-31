@@ -19,7 +19,6 @@ include 'includes/_templates.php';
     <main>
         <section class="profile-bck">
             <div class="profile-alg">
-
                 <div class="profile-photo">
                     <img class="profile-photo_ff" src="img/profile-photo.png" alt="Photo de l'utulisateur">
                     <button class="profile-photo_btn">Editer le profil</button>
