@@ -8,16 +8,20 @@ include 'includes/_config.php';
 // if (!isset($_REQUEST['action'])) {
 //     redirectTo('index.php');
 // }
+getRouteDetails($dbCo,1);
 
+// if ($_REQUEST['action'] === 'search') {
+//     $dataStrip = stripTagsArray($_REQUEST);
+//     $sqlResuest = constructSqlSearchRoute($dataStrip);
+//     // var_dump(getRoutesBySearchParam($dbCo, $sqlResuest));
+//     $idRoutes = getRoutesBySearchParam($dbCo, $sqlResuest);
+//     foreach ($idRoutes as $idRoute) {
+//         # code...
+//     }
 
-if ($_REQUEST['action'] === 'search') {
-    $dataStrip = stripTagsArray($_REQUEST);
-    // var_dump($dataStrip );
-    $sqlResuest = constructSqlSearchRoute($dataStrip);
-    // var_dump($sqlResuest );
-    var_dump(getRoutesBySearchParam($dbCo, $sqlResuest));
-    exit;
-}
+//     exit;
+// }
+
 
 
 

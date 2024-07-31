@@ -185,23 +185,23 @@ function getAllroutes(PDO $dbCo): array
 
 
 
-/**
- * Gets details for a route. created by (ayk)
- * @param PDO $dbCo database connection
- * @return array of details of route.
- */
-function getRouteDetails(PDO $dbCo, int $idRoute): array
-{
-    $query = $dbCo->prepare("SELECT * FROM route WHERE id_route =:idRoute;");
-    $isQueryOk = $query->execute(['idRoute' => $idRoute]);
-    $routeDetails = $query->fetchAll();
+// /**
+//  * Gets details for a route. created by (ayk)
+//  * @param PDO $dbCo database connection
+//  * @return array of details of route.
+//  */
+// function getRouteDetails(PDO $dbCo, int $idRoute): array
+// {
+//     $query = $dbCo->prepare("SELECT * FROM route WHERE id_route =:idRoute;");
+//     $isQueryOk = $query->execute(['idRoute' => $idRoute]);
+//     $routeDetails = $query->fetchAll();
 
-    if (!$isQueryOk) {
-        addError('select_ko');
-        redirectTo();
-    }
-    return $routeDetails;
-}
+//     if (!$isQueryOk) {
+//         addError('select_ko');
+//         redirectTo();
+//     }
+//     return $routeDetails;
+// }
 
 
 /** not ready yet
@@ -250,7 +250,7 @@ function constructSqlSearchRoute($data): array
     var_dump($data);
     $bind = [];
     $request = [];
-    $startRequest = "SELECT * FROM route WHERE";
+    $startRequest = "SELECT id_route FROM route WHERE";
 
     if (empty($data)) {
         addError("search_ko");
@@ -344,4 +344,24 @@ function paramsToInt($data): array
         $value = intval($value);
     }
     return $data;
+}
+
+function getRouteDetails(PDO $dbCo, $idRoute)
+{
+    $query = $dbCo->prepare("SELECT id_route, illustration_img, URL, alt, title, distance, difficulty, description
+                            FROM illustrer
+                                JOIN route USING(id_route)
+                                JOIN img USING (id_img)
+                                JOIN categorize USING(id_route)
+                                JOIN class_route USING(id_class_route)
+                            WHERE is_main = 1 AND id_route = :idRoute
+                            ORDER BY distance;");
+
+    $isQueryOk = $query->execute(["idRoute"=> $idRoute]);
+    $route = $query->fetchAll();
+    if (!$isQueryOk) {
+        addError('select_ko');
+        redirectTo();
+    }
+    return $route;
 }
