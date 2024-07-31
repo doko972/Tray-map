@@ -6,14 +6,17 @@ include 'includes/_config.php';
 
 $data = [
     // 'title' => "Marcos",
-    // 'distance' => "5"
-
-    "difficulty" => "1",
-    "id_class_route" => "1"
+    // 'distance' => "5",
+    // "difficulty" => 1,
+    "id_class_route" => "2",
+    // "description" =>"hello this trial map of caen"
 ];
 
 
-var_dump (getRoutesBySearchParam($dbCo, $data));
+
+// $dataInt = paramsToInt($data);
+// var_dump($dataInt);
+var_dump(getRoutesBySearchParam($dbCo, $data));
 
 //  var_dump(stripTagsArray($data));
 

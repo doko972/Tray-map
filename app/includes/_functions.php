@@ -183,14 +183,16 @@ function searchRouteByName(PDO $dbCo, string $title): ?array
  * @param array $inputData
  * @return array
  */
-function constructSqlSearchRoute($inputData):array
+function constructSqlSearchRoute($inputData): array
 {
-    $data = stripTagsArray($inputData);
+    $dataStrip = stripTagsArray($inputData);
+    $data = paramsToInt($dataStrip);
     $bind = [];
     $request = [];
     $startRequest = "SELECT * FROM route WHERE";
+
     if (empty($data)) {
-        addError("search_ko");
+        addError("sea rch_ko");
         redirectTo();
     }
 
@@ -227,7 +229,15 @@ function constructSqlSearchRoute($inputData):array
 
 
 
-function getRoutesBySearchParam(PDO $dbCo, array $data):array
+
+
+/**
+ * Gets the routes from search paramas(data);
+ * @param PDO $dbCo database connection.
+ * @param array $data params de search
+ * @return array of routes
+ */
+function getRoutesBySearchParam(PDO $dbCo, array $data): array
 {
     $finalData = constructSqlSearchRoute($data);
     // var_dump($request);
@@ -240,4 +250,38 @@ function getRoutesBySearchParam(PDO $dbCo, array $data):array
         redirectTo();
     }
     return $routes;
+}
+
+
+
+/**
+ * if the value isnt numeric will call addError() and redirectTo()
+ * @param mixed $value 
+ * @return void 
+ */
+function isNumericInt($value): void
+{
+    if (!is_numeric($value)) {
+        addError('Numeric_KO');
+        redirectTo();
+    }
+}
+
+
+
+/**
+ * Converts numeric values to int.
+ * @param array $data array 
+ * @return array modified array
+ */
+function paramsToInt($data):array
+{
+    foreach ($data as $key => &$value) {
+
+        if ($key === 'title') continue;
+        if ($key === 'description') continue;
+        isNumericInt($value);
+        $value = intval($value);
+    }
+    return $data;
 }
