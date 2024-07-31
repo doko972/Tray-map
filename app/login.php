@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($user && password_verify($password, $user['password'])) {
             // L'utilisateur est connecté
             $_SESSION['email'] = $email;
-            header("Location: success.php");
+            header("Location: index.php");
             exit();
         } else {
             // L'email ou le mot de passe est incorrect
@@ -50,6 +50,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 
     <form class="login-form" action="" method="post">
+    <?php
+if (isset($_SESSION['message'])) {
+    echo "<p class='error-message'>" . $_SESSION['message'] . "</p>";
+    unset($_SESSION['message']);
+}
+?>
     <label class="form-label" for="email">Email:</label>
     <input class="form-input" placeholder="Votre Mail" type="email" id="email" name="email" required><br><br>
     <label class="form-label"  for="password">Mot de passe:</label>

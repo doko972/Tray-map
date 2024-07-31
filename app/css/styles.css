@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 body {
   background: linear-gradient(
       240deg,
@@ -10,6 +11,7 @@ body {
   padding: 0;
   font-size: 16px;
 }
+
 *::after,
 *::before {
   box-sizing: border-box;
@@ -35,6 +37,7 @@ body {
   font-weight: 400;
   src: url("/fonts/Broaek - Thin.ttf") format("woff2");
 }
+
 @font-face {
   font-display: swap;
   font-family: "Broaek- Outline";
@@ -42,6 +45,7 @@ body {
   font-weight: 400;
   src: url("/fonts/Broaek- Outline.ttf") format("woff2");
 }
+
 @font-face {
   font-display: swap;
   font-family: "Broaek - Thin";
@@ -57,6 +61,7 @@ body {
   height: 92px;
   border-bottom: var(--white) 1px solid;
 }
+
 .header-right {
   display: flex;
   justify-content: center;
@@ -65,10 +70,12 @@ body {
   margin-right: 50px;
   gap: 50px;
 }
+
 .header-logo {
   margin-top: 25px;
   margin-left: 30px;
 }
+
 .menu-toggle {
   height: 16px;
   width: 16px;
@@ -92,32 +99,38 @@ body {
   .menu-toggle-bar:after {
     content: "";
   }
+
   .menu-toggle-bar:before {
     left: 0px;
     top: -10px;
     width: 27px;
   }
+
   .menu-toggle-bar {
     right: 0px;
     top: 13px;
     width: 27px;
   }
+
   .menu-toggle-bar:after {
     left: 0px;
     top: 10px;
     width: 27px;
   }
+
   &.close {
     .menu-toggle-bar:before {
       top: 0px;
       transform: rotate(90deg);
       width: 27px;
     }
+
     .menu-toggle-bar {
       transform: rotate(-45deg);
       top: 13px;
       width: 27px;
     }
+
     .menu-toggle-bar:after {
       top: 0px;
       left: 0;
@@ -148,9 +161,11 @@ body {
     background: var(--black);
     border-radius: 1rem;
   }
+
   .menu-container {
     padding: 0;
   }
+
   .menu-container-lnk {
     color: var(--green);
     display: block;
@@ -160,6 +175,7 @@ body {
     font-family: "Broaek - Thin";
   }
 }
+
 .main-ttl {
   color: var(--green);
   font-family: "Broaek - Thin";
@@ -204,18 +220,22 @@ body {
   gap: 1rem;
   height: 1.5rem;
 }
+
 .trail-create {
   padding: 2rem;
 }
+
 .trail-create-img {
   width: 100%;
 }
+
 .trail-create-ttl,
 .trail-create-txt {
   font-family: "Broaek - Thin";
   color: var(--white);
   margin-bottom: 3rem;
 }
+
 .btn {
   background-color: var(--green);
   border: none;
@@ -224,16 +244,45 @@ body {
   font-size: 1rem;
   padding: 10px 24px 10px 24px;
   margin-top: 1.5rem;
+  max-width: 10rem;
 }
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  background-color: var(--green);
+  border: none;
+  border-radius: 50px;
+  color: var(--black);
+  font-size: 1rem;
+  padding: 10px 24px 10px 24px;
+  margin-top: 1rem;
+  max-width: 12rem;
+  text-shadow: 0px 1px 0px var(--green);
+}
+
+.btn:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.btn:active {
+  background-color: var(--green);
+  position: relative;
+  top: 1px;
+}
+
 .trail-card {
   padding: 1.5rem;
   background-color: var(--white);
   margin: 1rem 1rem 2rem 1rem;
   border-radius: 0.5rem;
 }
+
 .trail-card-img {
   width: 100%;
 }
+
 .trail-card-txt {
   color: var(--black);
   font-family: "Broaek - Thin";
@@ -362,7 +411,6 @@ body {
 }
 .form-label {
   margin-bottom: 1rem;
- 
 }
 .login-btn,
 .register-btn {
@@ -396,19 +444,33 @@ body {
   margin-bottom: 1rem;
   margin-top: 4rem;
 }
-.home-lnk,
-.success-txt{
+
+.success-txt {
   color: var(--white);
   display: flex;
   justify-content: center;
-  margin-top: 2rem;margin-bottom: 7rem;
- 
-}
-.success-txt{
-  margin-top: 4rem;
+  margin-bottom: 6rem;
   font-size: 1.5rem;
 }
+
 .message {
   color: var(--white);
   margin-left: 2rem;
+}
+.success-lnk {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.success-home-lnk,
+.success-txt2{
+  color: var(--white);
+}
+.home-lnk {
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+  margin-bottom: 7rem;
 }
