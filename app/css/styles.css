@@ -309,8 +309,8 @@ body {
 .range-search {
   width: 100%; 
   padding: 1rem;
-  background-color: var(--darkGrey);
-  border: none;
+  background-color: var(--grey);
+  border-color: var(--darkGrey);
   border-radius: 0.5rem;
   margin: 0;
 }
@@ -325,4 +325,9 @@ label {
   align-items: center;
   flex-direction: column;
   margin-left: 5.5rem;
+}
+/*New Class Doko Branch*/
+.range_radio-alg{
+  display: flex;
+  flex-direction: column;
 }

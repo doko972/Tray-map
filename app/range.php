@@ -13,20 +13,30 @@
 
         <div class="range-choice">
             <legend>Difficulté:</legend>
-            <input type="radio" id="easy" name="level" value="easy">
-            <label for="easy">Facile</label><br>
-            <input type="radio" id="medium" name="level" value="medium">
-            <label for="medium">Moyen</label><br>
-            <input type="radio" id="hard" name="level" value="hard">
-            <label for="hard">Difficile</label><br>
+            <div class="range_radio-alg">
+                <label for="easy">Facile</label><br>
+                <input type="radio" id="easy" name="level" value="easy">
+            </div>
+            <div class="range_radio-alg">
+                <label for="medium">Moyen</label><br>
+                <input type="radio" id="medium" name="level" value="medium">
+            </div>
+            <div class="range_radio-alg">
+                <label for="hard">Difficile</label><br>
+                <input type="radio" id="hard" name="level" value="hard">
+            </div>
         </div>
 
         <div class="range-choice">
             <legend>Mode:</legend>
-            <input type="radio" id="onfoot" name="class_route" value="onfoot">
-            <label for="onfoot">A Pieds</label><br>
-            <input type="radio" id="bike" name="class_route" value="bike">
-            <label for="bike">Vélo</label><br>
+            <div class="range_radio-alg">
+                <label for="onfoot">A Pieds</label><br>
+                <input type="radio" id="onfoot" name="class_route" value="onfoot">
+            </div>
+            <div class="range_radio-alg">
+                <label for="bike">Vélo</label><br>
+                <input type="radio" id="bike" name="class_route" value="bike">
+            </div>
         </div>
         <button class="range-btn btn" type="submit">Rechercher</button>
     </div>
