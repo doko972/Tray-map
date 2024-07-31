@@ -76,16 +76,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="password" id="password" name="password" required><br><br>   
 
     <button type="submit">Créer le compte</button>
+
+    <!-- search  routes -->
 </form>
-        <form class="search-form">
+        <form class="action" method="post"  action="/action.php">
             <div class="search-input">
-                <input type="text" placeholder="Rechercher votre ville...">
+                <input name="name" type="text" placeholder="Rechercher votre ville...">
                 <button type="button">🔍</button>
             </div>
 
             <div class="range-choice">
                 <label for="distance">Distance:</label>
-                <input type="range" id="distance" min="1" max="100" oninput="this.nextElementSibling.value = this.value">
+                <input name="distance" type="range" id="distance" min="1" max="100" oninput="this.nextElementSibling.value = this.value">
                 <output>100</output> km
             </div>
 
@@ -94,15 +96,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="difficulty-options">
                     <label>
                         Facile
-                        <input type="radio" name="difficulty" value="facile">
+                        <input type="radio" name="difficulty" value="1">
                     </label>
                     <label>
                         Moyen
-                        <input type="radio" name="difficulty" value="moyen">
+                        <input type="radio" name="difficulty" value="2">
                     </label>
                     <label>
                         Difficile
-                        <input type="radio" name="difficulty" value="difficile">
+                        <input type="radio" name="difficulty" value="3">
                     </label>
                 </div>
             </div>
@@ -112,11 +114,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="mode-options">
                     <label>
                         Vélo
-                        <input type="radio" name="mode" value="velo">
+                        <input type="radio" name="id_class_route" value="1">
                     </label>
                     <label>
                         Randonnée
-                        <input type="radio" name="mode" value="randonnee">
+                        <input type="radio" name="id_class_route" value="2">
                     </label>
                 </div>
             </div>

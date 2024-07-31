@@ -4,19 +4,21 @@ include 'includes/_database.php';
 include 'includes/_functions.php';
 include 'includes/_config.php';
 
-$data = [
-    // 'title' => "Marcos",
-    // 'distance' => "5",
-    // "difficulty" => 1,
-    "id_class_route" => "2",
-    // "description" =>"hello this trial map of caen"
-];
+var_dump($_REQUEST["POST"]);
+
+// $data = [
+//     // 'title' => "Marcos",
+//     // 'distance' => "5",
+//     // "difficulty" => 1,
+//     "id_class_route" => "2",
+//     // "description" =>"hello this trial map of caen"
+// ];
 
 
 
-// $dataInt = paramsToInt($data);
-// var_dump($dataInt);
-var_dump(getRoutesBySearchParam($dbCo, $data));
+// // $dataInt = paramsToInt($data);
+// // var_dump($dataInt);
+// var_dump(getRoutesBySearchParam($dbCo, $data));
 
 //  var_dump(stripTagsArray($data));
 
