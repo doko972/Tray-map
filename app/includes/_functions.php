@@ -123,6 +123,12 @@ function getDifficulties(PDO $dbCo):array
 }
 
 
+function displayDifficlty($difficulty) {
+   '<input type="radio" id="easy" name="'.$difficulty["name"].
+   '" value="'.$difficulty["id_difficulty"].'">
+    <label for="easy">'.$difficulty["name"].'</label><br>';
+
+}
 
 /**
  * Gets Difficulty class route.

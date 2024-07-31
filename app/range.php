@@ -3,7 +3,7 @@
 // include 'includes/_functions.php';
 // include 'includes/_templates.php';
 
-var_dump();
+var_dump(getDifficulties($dbCo));
 var_dump(getClassRoutes($dbCo));
 ?>
 
@@ -21,12 +21,18 @@ var_dump(getClassRoutes($dbCo));
 
                 <div class="range-choice">
                     <legend>Difficulté:</legend>
-                    <input type="radio" id="easy" name="difficulty_name" value="1">
+                    <?php
+                    $difficulties =getDifficulties($dbCo);
+                    foreach ( $difficulties as $difficulty) {
+                       echo displayDifficlty($difficulty);
+                    }
+                    ?>
+                    <!-- <input type="radio" id="easy" name="difficulty_name" value="1">
                     <label for="easy">Facile</label><br>
                     <input type="radio" id="medium" name="difficulty_name" value="2">
                     <label for="medium">Moyen</label><br>
                     <input type="radio" id="hard" name="difficulty_name" value="3">
-                    <label for="hard">Difficile</label><br>
+                    <label for="hard">Difficile</label><br> -->
                 </div>
 
                 <div class="range-choice">
