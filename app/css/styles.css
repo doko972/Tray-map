@@ -191,7 +191,7 @@ body {
   grid-template-rows: 30% 30% 30%;
   padding: 2rem;
   margin-bottom: 0;
-  
+
 }
 
 .footer-txt {
@@ -248,6 +248,32 @@ body {
   font-size: 1rem;
   padding: 10px 24px 10px 24px;
   margin-top: 1.5rem;
+  max-width: 10rem;
+}
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  background-color: var(--green);
+  border: none;
+  border-radius: 50px;
+  color: var(--black);
+  font-size: 1rem;
+  padding: 10px 24px 10px 24px;
+  margin-top: 1rem;
+  max-width: 12rem;
+  text-shadow: 0px 1px 0px var(--green);
+}
+
+.btn:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.btn:active {
+  background-color: var(--green);
+  position: relative;
+  top: 1px;
 }
 
 .trail-card {
@@ -265,10 +291,12 @@ body {
   color: var(--black);
   font-family: "Broaek - Thin";
 }
-.trail-card-ttl{
+
+.trail-card-ttl {
   font-size: 1.5rem;
-  font-family:"Broaek - Thin" ;
+  font-family: "Broaek - Thin";
 }
+
 .trail-info {
   display: grid;
   grid-template-columns: 70% 30%;
@@ -281,21 +309,21 @@ body {
 .range-container {
   display: flex;
   flex-direction: column;
-  background-color: var(--grey); 
+  background-color: var(--grey);
   border-radius: 1.5rem;
-  padding: .5rem; 
+  padding: .5rem;
   margin: 1.5rem;
 }
 
-.range-options { 
+.range-options {
   display: flex;
-  flex-direction: column; 
-  gap: 1rem; 
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .range-choice {
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -307,7 +335,7 @@ body {
 }
 
 .range-search {
-  width: 100%; 
+  width: 100%;
   padding: 1rem;
   background-color: var(--grey);
   border-color: var(--darkGrey);
@@ -316,9 +344,10 @@ body {
 }
 
 label {
-  margin-right: 0.5rem; 
+  margin-right: 0.5rem;
 }
-.range-btn{
+
+.range-btn {
   width: 115px;
   display: flex;
   text-align: center;
@@ -326,8 +355,60 @@ label {
   flex-direction: column;
   margin-left: 5.5rem;
 }
+
 /*New Class Doko Branch*/
-.range_radio-alg{
+.range_radio-alg {
   display: flex;
   flex-direction: column;
 }
+
+/*profile.php doko branch*/
+.profile-alg{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-photo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile-photo_ff {
+  width: 122px;
+  border-radius: 5rem;
+  border: 5px solid var(--white);
+  position: relative;
+}
+
+.profile-photo_btn {
+  display: inline-block;
+  cursor: pointer;
+  background-color: var(--green);
+  border: none;
+  border-radius: 3.125rem;
+  color: var(--black);
+  font-size: 1rem;
+  padding: 0.625rem 1.5rem;
+  margin-top: 1rem;
+  max-width: 10rem;
+  text-shadow: 0px 1px 0px var(--green);
+}
+
+.profile-photo_btn:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.profile-photo_btn:active {
+  background-color: var(--green);
+  position: relative;
+  top: 1px;
+}
+.profile-bck{
+  height: 14.375;
+  background-color: var(--green);
+}
+
+
+/*exemple*/
