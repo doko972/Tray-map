@@ -229,8 +229,7 @@ body {
 }
 
 .trail-create-img {
-  height: 308px;
-  width: 339px;
+  width: 100%;
 }
 
 .trail-create-ttl,
