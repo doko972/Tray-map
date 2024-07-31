@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['email'] = $email;
-            header("Location: success.php");
+            header("Location: index.php");
             exit();
         } else {
             $_SESSION['message'] = "Email ou mot de passe incorrect.";
@@ -50,11 +50,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     <form class="login-form" action="" method="post">
-        <label class="form-label" for="email">Email:</label>
-        <input class="form-input" placeholder="Votre Mail" type="email" id="email" name="email" required><br><br>
-        <label class="form-label" for="password">Mot de passe:</label>
-        <input class="form-input" placeholder="Votre mot de passe" type="password" id="password" name="password"
-            required><br><br>
+    <?php
+if (isset($_SESSION['message'])) {
+    echo "<p class='error-message'>" . $_SESSION['message'] . "</p>";
+    unset($_SESSION['message']);
+}
+?>
+    <label class="form-label" for="email">Email:</label>
+    <input class="form-input" placeholder="Votre Mail" type="email" id="email" name="email" required><br><br>
+    <label class="form-label"  for="password">Mot de passe:</label>
+    <input class="form-input" placeholder="Votre mot de passe" type="password" id="password" name="password" required><br><br>
 
         <button class="login-btn btn" type="submit">Connection</button>
         <a class="forgot-lnk" href="#">Mot de passe oublié ?</a>
