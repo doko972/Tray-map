@@ -1,7 +1,7 @@
 <header class="header-container">
     <img class="header-logo" src="./img/MinLogo 1.png" alt="logo site">
     <div class="header-right">
-        <img src="./img/Generic avatar.png" alt="avatar user">
+        <a href="login.php"><img src="./img/Generic avatar.png" alt="avatar user"></a>
 
         <div class="menu-toggle" id="burger-menu">
             <span class="menu-toggle-bar"></span>
