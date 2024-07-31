@@ -96,7 +96,7 @@ function getHtmlMessages(array $messagesList): string
  *
  * @param array $data - input values
  */
-function stripTagsArray(array &$data):array
+function stripTagsArray(array &$data): array
 {
     $data = array_map('strip_tags', $data);
     return $data;
@@ -108,7 +108,7 @@ function stripTagsArray(array &$data):array
  * @param PDO $dbCo datebase connection.
  * @return array array of difficulty.
  */
-function getDifficulties(PDO $dbCo):array
+function getDifficulties(PDO $dbCo): array
 {
     $query = $dbCo->prepare("SELECT * FROM `difficulty`;");
     $isQueryOk = $query->execute();
@@ -119,23 +119,38 @@ function getDifficulties(PDO $dbCo):array
         redirectTo();
     }
     return $difficulty;
+}
 
+/**
+ * Adds html tages to difficulty.
+ * @param array $difficulty
+ * @return string html tages string
+ */
+function AddsHtmlDifficulty($difficulty): string
+{
+    return '<input type="radio" id="' . $difficulty["name"] . '" name="difficulty" value="' . $difficulty["id_difficulty"] . '">
+    <label for="easy">' . $difficulty["name"] . '</label><br>';
 }
 
 
-function displayDifficlty($difficulty):string {
-  return '<input type="radio" id="easy" name="'.$difficulty["name"].
-   '" value="'.$difficulty["id_difficulty"].'">
-    <label for="easy">'.$difficulty["name"].'</label><br>';
-
+/**
+ * Adds html tages to class routes.
+ * @param array $classRoute
+ * @return string html tages string
+ */
+function AddsHtmlClassRoute($classRoute): string
+{
+    return '<input type="radio" id="' . $classRoute["class_name"] . '" name="class_route" value="' . $classRoute["id_class_route"] . '">
+    <label for="' . $classRoute["class_name"] . '">' . $classRoute["class_name"] . "</label><br>";
 }
+
 
 /**
  * Gets Difficulty class route.
  * @param PDO $dbCo datebase connection.
  * @return array array of class route.
  */
-function getClassRoutes(PDO $dbCo):array
+function getClassRoutes(PDO $dbCo): array
 {
     $query = $dbCo->prepare("SELECT * FROM `class_route`;");
     $isQueryOk = $query->execute();
@@ -146,7 +161,6 @@ function getClassRoutes(PDO $dbCo):array
         redirectTo();
     }
     return $difficulty;
-
 }
 
 
@@ -231,24 +245,23 @@ function searchRouteByName(PDO $dbCo, string $title): ?array
  * @param array $inputData
  * @return array
  */
-function constructSqlSearchRoute($inputData): array
+function constructSqlSearchRoute($data): array
 {
-    $dataStrip = stripTagsArray($inputData);
-    $data = paramsToInt($dataStrip);
+    var_dump($data);
     $bind = [];
     $request = [];
     $startRequest = "SELECT * FROM route WHERE";
 
     if (empty($data)) {
-        addError("sea rch_ko");
+        addError("search_ko");
         redirectTo();
     }
 
-    if (isset($data["id_class_route"])) {
+    if (isset($data["class_route"])) {
         $startRequest = 'SELECT * FROM `route` JOIN categorize
      USING (id_route) WHERE ';
         $request[] = 'id_class_route  =  :idClassRoute';
-        $bind['idClassRoute'] = $data["id_class_route"];
+        $bind['idClassRoute'] = $data["class_route"];
     }
 
     if (isset($data['title'])) {
@@ -287,10 +300,10 @@ function constructSqlSearchRoute($inputData): array
  */
 function getRoutesBySearchParam(PDO $dbCo, array $data): array
 {
-    $finalData = constructSqlSearchRoute($data);
+    // $finalData = constructSqlSearchRoute($data);
     // var_dump($request);
-    $query = $dbCo->prepare($finalData["sqlRequest"]);
-    $isQueryOk = $query->execute($finalData["bind"]);
+    $query = $dbCo->prepare($data["sqlRequest"]);
+    $isQueryOk = $query->execute($data["bind"]);
     $routes = $query->fetchAll();
 
     if (!$isQueryOk) {
@@ -322,13 +335,12 @@ function isNumericInt($value): void
  * @param array $data array 
  * @return array modified array
  */
-function paramsToInt($data):array
+function paramsToInt($data): array
 {
     foreach ($data as $key => &$value) {
 
         if ($key === 'title') continue;
-        if ($key === 'description') continue;
-        isNumericInt($value);
+        // isNumericInt($value);
         $value = intval($value);
     }
     return $data;

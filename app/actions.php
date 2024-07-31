@@ -4,27 +4,29 @@ include 'includes/_database.php';
 include 'includes/_functions.php';
 include 'includes/_config.php';
 
-var_dump($_REQUEST);
 
-// if (!$_REQUEST === "action")
-//  {
-
-
-
+// if (!isset($_REQUEST['action'])) {
+//     redirectTo('index.php');
 // }
 
 
+if ($_REQUEST['action'] === 'search') {
+    $dataStrip = stripTagsArray($_REQUEST);
+    var_dump($dataStrip );
+    $sqlResuest = constructSqlSearchRoute($dataStrip);
+    var_dump($sqlResuest );
+    var_dump(getRoutesBySearchParam($dbCo, $sqlResuest));
+    exit;
+}
 
 
 
-
-$data = [
-    // 'title' => "Marcos",
-    // 'distance' => "5",
-    // "difficulty" => 1,
-    "id_class_route" => "2",
-    // "description" =>"hello this trial map of caen"
-];
+// $data = [
+//     // 'title' => "Marcos",
+//     // 'distance' => "5",
+//     // "difficulty" => 1,
+//     "id_class_route" => "2",
+// ];
 
 
 
@@ -46,9 +48,7 @@ $data = [
 // var_dump(searchRouteByName($dbCo, 'marco'));
 
 
-// if (!isset($_REQUEST['action'])) {
-//     redirectTo('index.php');
-// }
+
 
 // preventCSRF();
 

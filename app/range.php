@@ -1,20 +1,8 @@
-<?php
-// include 'includes/_database.php';
-// include 'includes/_functions.php';
-// include 'includes/_templates.php';
-
-// var_dump(getDifficulties($dbCo));
-// var_dump(getClassRoutes($dbCo));
-$difficulties =getDifficulties($dbCo);
-foreach ( $difficulties as $difficulty) {
-   echo displayDifficlty($difficulty);
-}
-?>
-
 <section class="range-container">
     <div class="range-nav">
         <form method="post" action="actions.php">
-
+            <!-- //token  dont forget to send token-->
+            <input type="hidden" name="action" value="search">
             <input class="range-search" type="text" placeholder="Search.." name="title">
             <div class="range-options">
                 <div class="range-choice">
@@ -26,9 +14,9 @@ foreach ( $difficulties as $difficulty) {
                 <div class="range-choice">
                     <legend>Difficulté:</legend>
                     <?php
-                    $difficulties =getDifficulties($dbCo);
-                    foreach ( $difficulties as $difficulty) {
-                       echo displayDifficlty($difficulty);
+                    $difficulties = getDifficulties($dbCo);
+                    foreach ($difficulties as $difficulty) {
+                        echo AddsHtmlDifficulty($difficulty);
                     }
                     ?>
                     <!-- <input type="radio" id="easy" name="difficulty_name" value="1">
@@ -41,10 +29,16 @@ foreach ( $difficulties as $difficulty) {
 
                 <div class="range-choice">
                     <legend>Mode:</legend>
-                    <input type="radio" id="onfoot" name="class_route" value="1">
+                    <?php
+                    $classRoutes  = getClassRoutes($dbCo);
+                    foreach ($classRoutes as $classRoute) {
+                        echo AddsHtmlClassRoute($classRoute);
+                    }
+                    ?>
+                    <!-- <input type="radio" id="onfoot" name="class_route" value="1">
                     <label for="onfoot">A Pieds</label><br>
                     <input type="radio" id="bike" name="class_route" value="2">
-                    <label for="bike">Vélo</label><br>
+                    <label for="bike">Vélo</label><br> -->
                 </div>
                 <button class="range-btn btn" type="submit">Rechercher</button>
             </div>
