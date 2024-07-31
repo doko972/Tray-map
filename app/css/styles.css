@@ -22,7 +22,7 @@ body {
   --white: #f1f2f6;
   --black: #1d1d1d;
   --blue: #aeb8fe;
-  --grey: #DEDEDE;
+  --grey: #dedede;
   --darkGrey: #837f7fb9;
   --gradient: rgba(67, 69, 77, 0.521);
   font-size: 16px;
@@ -178,7 +178,6 @@ body {
   grid-template-rows: 30% 30% 30%;
   padding: 2rem;
   margin-bottom: 0;
-  
 }
 
 .footer-txt {
@@ -239,9 +238,9 @@ body {
   color: var(--black);
   font-family: "Broaek - Thin";
 }
-.trail-card-ttl{
+.trail-card-ttl {
   font-size: 1.5rem;
-  font-family:"Broaek - Thin" ;
+  font-family: "Broaek - Thin";
 }
 .trail-info {
   display: grid;
@@ -257,7 +256,7 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
- margin: 1.5rem;
+  margin: 1.5rem;
 }
 .search-input {
   position: relative;
@@ -302,22 +301,26 @@ body {
   width: 30px;
   text-align: right;
 }
-.difficulty, .mode {
+.difficulty,
+.mode {
   margin-bottom: 20px;
   display: flex;
   align-items: flex-start;
 }
-.difficulty p, .mode p {
+.difficulty p,
+.mode p {
   margin: 0;
   font-size: 14px;
   width: 70px;
 }
-.difficulty-options, .mode-options {
+.difficulty-options,
+.mode-options {
   display: flex;
   justify-content: space-between;
   flex-grow: 1;
 }
-.difficulty-options label, .mode-options label {
+.difficulty-options label,
+.mode-options label {
   display: flex;
   flex-direction: column;
   align-items: center;

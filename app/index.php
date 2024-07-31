@@ -1,7 +1,29 @@
 <?php
 session_start();
-include 'includes/_database.php';
 
+
+include 'includes/_database.php';
+include 'includes/_config.php';
+include 'includes/_functions.php';
+
+generateToken();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    
+    $query = $dbCo->prepare("INSERT INTO person (email, password, create_date, id_role) VALUES (:email, :password, NOW(), 1)"); 
+    $isQueryOk = $query->execute(['email' => $email, 'password' => $hashedPassword]);
+
+    if ($isQueryOk) {
+        echo "Compte créé avec succès !";
+    } else {
+        echo "Erreur lors de la création du compte.";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -43,59 +65,65 @@ include 'includes/_database.php';
     </header>
     <main>
 
-        
+       
         <section>
             <h1 class="main-ttl">trailshare - <br> la communauté des amateurs de randonnées et de cyclotourisme</h1>
         </section>
-        <!--Create select route-->
+        <form action="" method="post"> 
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+    <label for="password">Mot de passe:</label>
+    <input type="password" id="password" name="password" required><br><br>   
+
+    <button type="submit">Créer le compte</button>
+</form>
         <form class="search-form">
-        <div class="search-input">
-            <input type="text" placeholder="Rechercher votre ville...">
-            <button type="button">🔍</button>
-        </div>
-        
-        <div class="range-choice">
-            <label for="distance">Distance:</label>
-            <input type="range" id="distance" min="1" max="100"
-                oninput="this.nextElementSibling.value = this.value">
-            <output>100</output> km
-        </div>
-        
-        <div class="difficulty">
-            <p>Difficulté:</p>
-            <div class="difficulty-options">
-                <label>
-                    Facile
-                    <input type="radio" name="difficulty" value="facile">
-                </label>
-                <label>
-                    Moyen
-                    <input type="radio" name="difficulty" value="moyen">
-                </label>
-                <label>
-                    Difficile
-                    <input type="radio" name="difficulty" value="difficile">
-                </label>
+            <div class="search-input">
+                <input type="text" placeholder="Rechercher votre ville...">
+                <button type="button">🔍</button>
             </div>
-        </div>
-        
-        <div class="mode">
-            <p>Mode:</p>
-            <div class="mode-options">
-                <label>
-                    Vélo
-                    <input type="radio" name="mode" value="velo">
-                </label>
-                <label>
-                    Randonnée
-                    <input type="radio" name="mode" value="randonnee">
-                </label>
+
+            <div class="range-choice">
+                <label for="distance">Distance:</label>
+                <input type="range" id="distance" min="1" max="100" oninput="this.nextElementSibling.value = this.value">
+                <output>100</output> km
             </div>
-        </div>
-        
-        <button type="submit" class="search-button">Rechercher</button>
-    </form>
-      
+
+            <div class="difficulty">
+                <p>Difficulté:</p>
+                <div class="difficulty-options">
+                    <label>
+                        Facile
+                        <input type="radio" name="difficulty" value="facile">
+                    </label>
+                    <label>
+                        Moyen
+                        <input type="radio" name="difficulty" value="moyen">
+                    </label>
+                    <label>
+                        Difficile
+                        <input type="radio" name="difficulty" value="difficile">
+                    </label>
+                </div>
+            </div>
+
+            <div class="mode">
+                <p>Mode:</p>
+                <div class="mode-options">
+                    <label>
+                        Vélo
+                        <input type="radio" name="mode" value="velo">
+                    </label>
+                    <label>
+                        Randonnée
+                        <input type="radio" name="mode" value="randonnee">
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="search-button">Rechercher</button>
+        </form>
+
         <section class="trail-create">
             <h2 class="trail-create-ttl">Créez votre parcours</h2>
             <img class="trail-create-img" src="./img//Rectangle 61.png" alt="cycliste">
