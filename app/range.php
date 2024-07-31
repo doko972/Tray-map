@@ -3,8 +3,12 @@
 // include 'includes/_functions.php';
 // include 'includes/_templates.php';
 
-var_dump(getDifficulties($dbCo));
-var_dump(getClassRoutes($dbCo));
+// var_dump(getDifficulties($dbCo));
+// var_dump(getClassRoutes($dbCo));
+$difficulties =getDifficulties($dbCo);
+foreach ( $difficulties as $difficulty) {
+   echo displayDifficlty($difficulty);
+}
 ?>
 
 <section class="range-container">
