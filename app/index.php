@@ -1,6 +1,8 @@
 <?php
 session_start();
 include 'includes/_database.php';
+include 'includes/_functions.php';
+include 'includes/_templates.php';
 
 ?>
 <!DOCTYPE html>
@@ -14,7 +16,6 @@ include 'includes/_database.php';
 </head>
 
 <body>
-
     <header class="header-container">
         <img class="header-logo" src="./img/MinLogo 1.png" alt="logo site">
         <div class="header-right">
@@ -43,44 +44,10 @@ include 'includes/_database.php';
     </header>
     <main>
 
-        <h1 class="main-ttl">trailshare - <br> la communauté des amateurs de randonnées et de cyclotourisme</h1>
-       
-        <section class="range-container">
-            <div class="range-nav">
-                <form action="/action_page.php">
-                    <input class="range-search" type="text" placeholder="Search.." name="search">
-                    <!-- <button type="submit"><i class=""></i></button> -->
-                </form>
-            </div>
-            <form>
-                <div class="range-choice">
-                    <label for="distance">Distance</label>
-                    <p>0km</p>
-                    <!-- <input type="range" id="distance" name="distance" min="0" max="100" step="0.01"/> -->
-                    <input type="range" value="distance" min="1" max="100"
-                        oninput="this.nextElementSibling.value = this.value">
-                    <output>100</output>
-                    <p>+ km</p>
-                </div>
-                <div class="range-choice">
-                    <p>Difficulté</p>
-                    <input type="radio" id="easy" name="level" value="easy">
-                    <label for="medium">Facile</label><br>
-                    <input type="radio" id="medium" name="level" value="medium">
-                    <label for="medium">Moyen</label><br>
-                    <input type="radio" id="hard" name="level" value="hard">
-                    <label for="medium">Difficile</label><br>
-                </div>
-                <div class="range-choice">
-                    <p>Mode</p>
-                    <input type="radio" id="onfoot" name="class_route" value="onfoot">
-                    <label for="medium">A Pieds</label><br>
-                    <input type="radio" id="bike" name="class_route" value="bike">
-                    <label for="medium">Vélo</label><br>
-                </div>
-            </form>
+        <section>
+            <h1 class="main-ttl">trailshare - <br> la communauté des amateurs de randonnées et de cyclotourisme</h1>
         </section>
-        <!--End of Create select route-->
+
         <section class="trail-create">
             <h2 class="trail-create-ttl">Créez votre parcours</h2>
             <img class="trail-create-img" src="./img//Rectangle 61.png" alt="cycliste">
@@ -90,51 +57,53 @@ include 'includes/_database.php';
                 ducimus aspernatur, enim corrupti dolorum doloribus atque delectus! Fugit, aliquid tenetur?</p>
             <button class="trail-create-btn btn">Créer un parcours</button>
         </section>
-        <section class="trail-card">
+        <section class="range-container">
+            <div class="range-nav">
+                <form action="/action_page.php">
+                    <input class="range-search" type="text" placeholder="Search.." name="search">
+                </form>
+            </div>
+            <div class="range-options">
+                <div class="range-choice">
+                    <label for="distance">Distance:</label>
+                    <input type="range" id="distance" min="1" max="100"
+                        oninput="this.nextElementSibling.value = this.value">
+                    <output>100</output> km
+                </div>
 
-            <img class="trail-card-img" src="./img//route_4-1.webp" alt="clecy">
-            <div class="trail-info">
-                <p class="trail-card-ttl">CLE Suisse Normande<br> 107 km - Difficile</p>
-                <img src="./img//Vector.png" alt="">
-            </div>
-            <p class="trail-card-txt">Découvrez ce parcours de vélo de 108,7 km à proximité de Cormelles-le-Royal. Ce
-                parcours emprunte 82 km de routes et 26,7 km de pistes cyclables. Il présente une ascension cumulée de
-                plus de 1160m</p>
+                <div class="range-choice">
+                    <legend>Difficulté:</legend>
+                    <input type="radio" id="easy" name="level" value="easy">
+                    <label for="easy">Facile</label><br>
+                    <input type="radio" id="medium" name="level" value="medium">
+                    <label for="medium">Moyen</label><br>
+                    <input type="radio" id="hard" name="level" value="hard">
+                    <label for="hard">Difficile</label><br>
+                </div>
 
-            <button class="btn">Voir la fiche parcours</button>
-        </section>
-        <section class="trail-card">
-            <img class="trail-card-img" src="./img//route_1-1.webp" alt="clecy">
-            <div class="trail-info">
-                <p class="trail-card-ttl">Vallée de L'Aise au départ de Ifs<br> 50 km - Moyen</p>
-                <img src="./img//Vector.png" alt="">
+                <div class="range-choice">
+                    <legend>Mode:</legend>
+                    <input type="radio" id="onfoot" name="class_route" value="onfoot">
+                    <label for="onfoot">A Pieds</label><br>
+                    <input type="radio" id="bike" name="class_route" value="bike">
+                    <label for="bike">Vélo</label><br>
+                </div>
+                <button class="range-btn btn" type="submit">Rechercher</button>
             </div>
-            <p class="trail-card-txt">Découvrez ce parcours de vélo de 50,2 km à proximité de Ifs. Il présente une
-                ascension cumulée de plus de 410m.</p>
-            <button class="btn">Voir la fiche parcours</button>
         </section>
-        <section class="trail-card">
-            <img class="trail-card-img" src="./img//route_4-1.webp" alt="clecy">
-            <div class="trail-info">
-                <p class="trail-card-ttl">Louvigny / Le Rocreuil<br> 11 km - Facile</p>
-                <img src="./img//Walking.png" alt="">
-            </div>
-            <p class="trail-card-txt">Découvrez ce parcours de marche nordique de 11 km à proximité de Louvigny. Ce
-                parcours emprunte 5 km de chemins et 2,2 km de pistes forestières.</p>
-            <button class="btn">Voir la fiche parcours</button>
-        </section>
-
-        <section class="trail-card">
-            <img class="trail-card-img" src="./img//route_4-1.webp" alt="clecy">
-            <div class="trail-info">
-                <p class="trail-card-ttl">Abbaye d'Ardennes au jardin public de Caen<br> 12.5 km - Moyen</p>
-                <img src="./img//Walking.png" alt="">
-            </div>
-            <p class="trail-card-txt">Découvrez ce parcours de marche de 12,5 km à proximité de
-                Saint-Germain-la-Blanche-Herbe. Ce parcours emprunte 9,2 km de routes et 1,3 km de pistes cyclables.
-                Prévoyez environ 3 heures et 20 minutes pour réaliser ce parcours.</p>
-            <button class="btn">Voir la fiche parcours</button>
-        </section>
+        <?php
+        $query = $dbCo->query("SELECT id_route, illustration_img, URL, alt, title, distance, difficulty, description
+                            FROM illustrer
+                                JOIN route USING(id_route)
+                                JOIN img USING (id_img)
+                                JOIN categorize USING(id_route)
+                                JOIN class_route USING(id_class_route)
+                            WHERE is_main = 1
+                            ORDER BY distance;");
+        while ($route = $query->fetch()) {
+            echo getHtmlProduct($route);
+        }
+        ?>
     </main>
 
     <footer>
