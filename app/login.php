@@ -18,12 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $query->fetch();
 
         if ($user && password_verify($password, $user['password'])) {
-            // L'utilisateur est connecté
             $_SESSION['email'] = $email;
             header("Location: success.php");
             exit();
         } else {
-            // L'email ou le mot de passe est incorrect
             $_SESSION['message'] = "Email ou mot de passe incorrect.";
             header("Location: login.php");
             exit();
@@ -39,31 +37,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>page de connection</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
     <img class="login-img" src="./img//MinLogo 2.png" alt="logo">
-    
+
 
     <form class="login-form" action="" method="post">
-    <label class="form-label" for="email">Email:</label>
-    <input class="form-input" placeholder="Votre Mail" type="email" id="email" name="email" required><br><br>
-    <label class="form-label"  for="password">Mot de passe:</label>
-    <input class="form-input" placeholder="Votre mot de passe" type="password" id="password" name="password" required><br><br>
+        <label class="form-label" for="email">Email:</label>
+        <input class="form-input" placeholder="Votre Mail" type="email" id="email" name="email" required><br><br>
+        <label class="form-label" for="password">Mot de passe:</label>
+        <input class="form-input" placeholder="Votre mot de passe" type="password" id="password" name="password"
+            required><br><br>
 
-    <button class="login-btn btn" type="submit">Connection</button>
-    <a class="forgot-lnk" href="#">Mot de passe oublié ?</a>
-</form>
+        <button class="login-btn btn" type="submit">Connection</button>
+        <a class="forgot-lnk" href="#">Mot de passe oublié ?</a>
+    </form>
 
 
-<p class="login-txt">Vous n'avez pas de compte ?</p>
-<a  href="createAcc.php"><button class="login-btn2" >Créer votre compte</button></a>
+    <p class="login-txt">Vous n'avez pas de compte ?</p>
+    <a href="createAcc.php"><button class="login-btn2">Créer votre compte</button></a>
 
-<a class="home-lnk" href="index.php">Retour à l'accueil</a>
+    <a class="home-lnk" href="index.php">Retour à l'accueil</a>
 
 </body>
+
 </html>
