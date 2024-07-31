@@ -45,8 +45,18 @@ include 'includes/_database.php';
         <section>
             <h1 class="main-ttl">trailshare - <br> la communauté des amateurs de randonnées et de cyclotourisme</h1>
         </section>
-        <!--Create select route-->
-        <section class="range-container">
+       
+        <section class="trail-create">
+            <h2 class="trail-create-ttl">Créez votre parcours</h2>
+            <img class="trail-create-img" src="./img//Rectangle 61.png" alt="cycliste">
+            <p class="trail-create-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi modi magni
+                reprehenderit quibusdam quod deserunt laborum natus cumque harum nisi, quia aut architecto qui dicta
+                amet repellendus numquam obcaecati in odio. Illum, blanditiis animi magni harum tempore explicabo alias
+                ducimus aspernatur, enim corrupti dolorum doloribus atque delectus! Fugit, aliquid tenetur?</p>
+            <button class="trail-create-btn btn">Créer un parcours</button>
+        </section>
+         <!--Create select route-->
+         <section class="range-container">
             <div class="range-nav">
                 <form action="/action_page.php">
                     <input class="range-search" type="text" placeholder="Search.." name="search">
@@ -77,16 +87,8 @@ include 'includes/_database.php';
                     <input type="radio" id="bike" name="class_route" value="bike">
                     <label for="bike">Vélo</label><br>
                 </div>
+                <button class="range-btn btn" type="submit">Rechercher</button>
             </div>
-        </section>
-        <section class="trail-create">
-            <h2 class="trail-create-ttl">Créez votre parcours</h2>
-            <img class="trail-create-img" src="./img//Rectangle 61.png" alt="cycliste">
-            <p class="trail-create-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi modi magni
-                reprehenderit quibusdam quod deserunt laborum natus cumque harum nisi, quia aut architecto qui dicta
-                amet repellendus numquam obcaecati in odio. Illum, blanditiis animi magni harum tempore explicabo alias
-                ducimus aspernatur, enim corrupti dolorum doloribus atque delectus! Fugit, aliquid tenetur?</p>
-            <button class="trail-create-btn btn">Créer un parcours</button>
         </section>
         <section class="trail-card">
 
@@ -101,6 +103,7 @@ include 'includes/_database.php';
 
             <button class="btn">Voir la fiche parcours</button>
         </section>
+        
         <section class="trail-card">
             <img class="trail-card-img" src="./img//route_1-1.webp" alt="clecy">
             <div class="trail-info">
