@@ -1,6 +1,6 @@
 <section class="range-container">
     <div class="range-nav">
-        <form method="post" action="actions.php">
+        <form method="post" action="search-route.php">
             <!-- //token  dont forget to send token-->
             <input type="hidden" name="action" value="search">
             <input class="range-search" type="text" placeholder="Search.." name="title">
