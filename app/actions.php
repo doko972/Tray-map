@@ -12,9 +12,9 @@ include 'includes/_config.php';
 
 if ($_REQUEST['action'] === 'search') {
     $dataStrip = stripTagsArray($_REQUEST);
-    var_dump($dataStrip );
+    // var_dump($dataStrip );
     $sqlResuest = constructSqlSearchRoute($dataStrip);
-    var_dump($sqlResuest );
+    // var_dump($sqlResuest );
     var_dump(getRoutesBySearchParam($dbCo, $sqlResuest));
     exit;
 }
