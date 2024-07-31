@@ -463,3 +463,11 @@ body {
   color: var(--white);
   margin-left: 2rem;
 }
+.range-btn{
+  width: 115px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 5.5rem;
+}
