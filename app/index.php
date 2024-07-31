@@ -8,22 +8,8 @@ include 'includes/_functions.php';
 
 generateToken();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
 
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    
-    $query = $dbCo->prepare("INSERT INTO person (email, password, create_date, id_role) VALUES (:email, :password, NOW(), 1)"); 
-    $isQueryOk = $query->execute(['email' => $email, 'password' => $hashedPassword]);
-
-    if ($isQueryOk) {
-        echo "Compte créé avec succès !";
-    } else {
-        echo "Erreur lors de la création du compte.";
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -40,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <header class="header-container">
         <img class="header-logo" src="./img/MinLogo 1.png" alt="logo site">
         <div class="header-right">
-            <img src="./img/Generic avatar.png" alt="avatar user">
+            <a href="login.php"><img src="./img/Generic avatar.png" alt="avatar user"></a>
 
             <div class="menu-toggle" id="burger-menu">
                 <span class="menu-toggle-bar"></span>
@@ -65,18 +51,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </header>
     <main>
 
-       
+
         <section>
             <h1 class="main-ttl">trailshare - <br> la communauté des amateurs de randonnées et de cyclotourisme</h1>
         </section>
-        <form action="" method="post"> 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required><br><br>
-    <label for="password">Mot de passe:</label>
-    <input type="password" id="password" name="password" required><br><br>   
 
-    <button type="submit">Créer le compte</button>
-</form>
+
         <form class="search-form">
             <div class="search-input">
                 <input type="text" placeholder="Rechercher votre ville...">
