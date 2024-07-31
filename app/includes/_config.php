@@ -12,8 +12,9 @@ $errors = [
     // 'upload_fail' => 'Erreur lors de l\'upload de l\'image.',
     // 'login_fail' => 'Échec de la connexion, vérifiez votre email et votre mot de passe.',
     // 'access_denied' => 'Accès refusé.'
-    'select_ko' => 'error selection'
-
+    'select_ko' => 'error selection',
+    'search_ko' => 'Voulez vous choisir des critic des researchs',
+    'numeric_KO' => 'Error one of values isnt numeric '
 ];
 
 $messages = [
