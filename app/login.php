@@ -46,22 +46,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <img src="./img//MinLogo 2.png" alt="logo">
+    <img class="login-img" src="./img//MinLogo 2.png" alt="logo">
     
 
-    <form action="" method="post">
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required><br><br>
-    <label for="password">Mot de passe:</label>
-    <input type="password" id="password" name="password" required><br><br>
+    <form class="login-form" action="" method="post">
+    <label class="form-label" for="email">Email:</label>
+    <input class="form-input" placeholder="Votre Mail" type="email" id="email" name="email" required><br><br>
+    <label class="form-label"  for="password">Mot de passe:</label>
+    <input class="form-input" placeholder="Votre mot de passe" type="password" id="password" name="password" required><br><br>
 
-    <button type="submit">Se connecter</button>
+    <button class="login-btn btn" type="submit">Connection</button>
+    <a class="forgot-lnk" href="#">Mot de passe oublié ?</a>
 </form>
 
 
-<p>Vous n'avez pas de compte ?</p>
-<a href="createAcc.php"><button>Créer votre compte</button></a>
+<p class="login-txt">Vous n'avez pas de compte ?</p>
+<a  href="createAcc.php"><button class="login-btn2" >Créer votre compte</button></a>
 
-<a href="index.php">Retour à l'accueil</a>
+<a class="home-lnk" href="index.php">Retour à l'accueil</a>
+
 </body>
 </html>
