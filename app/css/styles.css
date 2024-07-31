@@ -366,18 +366,26 @@ label {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  align-items: center;
+  margin-top:10rem;
+  background-color: var(--green);
+  background-size: 10rem;
+
 }
 .profile-photo {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
+
 }
 
 .profile-photo_ff {
   width: 122px;
   border-radius: 5rem;
   border: 5px solid var(--white);
-  position: relative;
+  /* position: relative; */
 }
 
 .profile-photo_btn {
@@ -405,8 +413,7 @@ label {
   top: 1px;
 }
 .profile-bck{
-  height: 14.375;
-  background-color: var(--green);
+  
 }
 
 
