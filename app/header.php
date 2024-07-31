@@ -10,7 +10,7 @@
     <nav id="menu">
         <ul class="menu-container">
             <li class="menu-container-itm">
-                <a class="menu-container-lnk" href="#">1er choix</a>
+                <a class="menu-container-lnk" href="trails.php">Chercher un parcours</a>
             </li>
             <li class="menu-container-itm">
                 <a class="menu-container-lnk" href="#">2eme choix</a>
