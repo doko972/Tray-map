@@ -96,20 +96,59 @@ function getHtmlMessages(array $messagesList): string
  *
  * @param array $data - input values
  */
-function stripTagsArray(array &$data): array
+function stripTagsArray(array &$data):array
 {
     $data = array_map('strip_tags', $data);
     return $data;
 }
 
 
+/**
+ * Gets Difficulty route.
+ * @param PDO $dbCo datebase connection.
+ * @return array array of difficulty.
+ */
+function getDifficulties(PDO $dbCo):array
+{
+    $query = $dbCo->prepare("SELECT * FROM `difficulty`;");
+    $isQueryOk = $query->execute();
+    $difficulty = $query->fetchAll();
+
+    if (!$isQueryOk) {
+        addError('select_ko');
+        redirectTo();
+    }
+    return $difficulty;
+
+}
+
+
 
 /**
- * Gets all the published routes(where status = 0). created by (ayk)
- * @param PDO $dbCo database connection
- * @return array array of routes.
+ * Gets Difficulty class route.
+ * @param PDO $dbCo datebase connection.
+ * @return array array of class route.
  */
-function getAllroutes(PDO $dbCo): ?array
+function getClassRoutes(PDO $dbCo):array
+{
+    $query = $dbCo->prepare("SELECT * FROM `class_route`;");
+    $isQueryOk = $query->execute();
+    $difficulty = $query->fetchAll();
+
+    if (!$isQueryOk) {
+        addError('select_ko');
+        redirectTo();
+    }
+    return $difficulty;
+
+}
+
+
+
+
+
+
+function getAllroutes(PDO $dbCo): array
 {
     $query = $dbCo->prepare("SELECT * FROM `route` WHERE status = 1;");
     $isQueryOk = $query->execute();
@@ -123,12 +162,15 @@ function getAllroutes(PDO $dbCo): ?array
 }
 
 
+
+
+
 /**
  * Gets details for a route. created by (ayk)
  * @param PDO $dbCo database connection
  * @return array of details of route.
  */
-function getRouteDetails(PDO $dbCo, int $idRoute): ?array
+function getRouteDetails(PDO $dbCo, int $idRoute): array
 {
     $query = $dbCo->prepare("SELECT * FROM route WHERE id_route =:idRoute;");
     $isQueryOk = $query->execute(['idRoute' => $idRoute]);

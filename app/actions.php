@@ -14,17 +14,17 @@ var_dump($_REQUEST);
 // }
 
 
-if(a)
 
 
 
-// $data = [
-//     // 'title' => "Marcos",
-//     // 'distance' => "5",
-//     // "difficulty" => 1,
-//     "id_class_route" => "2",
-//     // "description" =>"hello this trial map of caen"
-// ];
+
+$data = [
+    // 'title' => "Marcos",
+    // 'distance' => "5",
+    // "difficulty" => 1,
+    "id_class_route" => "2",
+    // "description" =>"hello this trial map of caen"
+];
 
 
 
