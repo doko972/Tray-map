@@ -358,9 +358,11 @@ body {
   border: var(--darkGrey) 1px solid;
   height: 3rem;
   background-color: var(--white);
+  padding-left: 1rem;
 }
 .form-label {
   margin-bottom: 1rem;
+ 
 }
 .login-btn,
 .register-btn {
