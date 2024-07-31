@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- search  routes -->
 </form>
-        <form class="action" method="post"  action="/action.php">
+        <form class="action" method="post"  action="/actions.php">
             <div class="search-input">
                 <input name="name" type="text" placeholder="Rechercher votre ville...">
                 <button type="button">🔍</button>

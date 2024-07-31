@@ -4,7 +4,19 @@ include 'includes/_database.php';
 include 'includes/_functions.php';
 include 'includes/_config.php';
 
-var_dump($_REQUEST["POST"]);
+var_dump($_REQUEST);
+
+// if (!$_REQUEST === "action")
+//  {
+
+
+
+// }
+
+
+if(a)
+
+
 
 // $data = [
 //     // 'title' => "Marcos",
