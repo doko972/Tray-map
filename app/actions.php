@@ -32,12 +32,4 @@ var_dump(getRoutesBySearchParam($dbCo, $data));
 // var_dump(searchRouteByName($dbCo, 'marco'));
 
 
-// if (!isset($_REQUEST['action'])) {
-//     redirectTo('index.php');
-// }
 
-// preventCSRF();
-
-// if (!isset($_REQUEST['action'])=="getAllRoutes") {
-//     var_dump(getAllroutes($dbCo));
-// }
