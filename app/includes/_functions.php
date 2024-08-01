@@ -128,10 +128,11 @@ function getDifficulties(PDO $dbCo): array
  */
 function AddsHtmlDifficulty($difficulty): string
 {
-    return '<input type="radio" id="' . $difficulty["name"] . '" name="difficulty" value="' . $difficulty["id_difficulty"] . '">
-    <label for="easy">' . $difficulty["name"] . '</label><br>';
+    return '<div class="range_radio-alg range_radio-alg-f">'
+    . '<label for="easy">' . $difficulty["name"] . '</label><br>'
+    . '<input type="radio" id="' . $difficulty["name"] . '" name="difficulty" value="' . $difficulty["id_difficulty"] . '">'
+    . '</div>';
 }
-
 
 /**
  * Adds html tages to class routes.
@@ -140,8 +141,12 @@ function AddsHtmlDifficulty($difficulty): string
  */
 function AddsHtmlClassRoute($classRoute): string
 {
-    return '<input type="radio" id="' . $classRoute["class_name"] . '" name="class_route" value="' . $classRoute["id_class_route"] . '">
-    <label for="' . $classRoute["class_name"] . '">' . $classRoute["class_name"] . "</label><br>";
+    return '<div class="range_radio-alg range_radio-alg-v">'
+    . '<label for="' . $classRoute["class_name"] . '">' 
+    . $classRoute["class_name"] . '</label>' 
+    .'<input type="radio" id="' . $classRoute["class_name"] . '" name="class_route" value="' 
+    . $classRoute["id_class_route"] . '">'
+    . '</div>';
 }
 
 
