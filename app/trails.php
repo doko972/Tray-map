@@ -30,7 +30,7 @@ include 'includes/_templates.php';
                                 JOIN img USING (id_img)
                                 JOIN categorize USING(id_route)
                                 JOIN class_route USING(id_class_route)
-                            WHERE is_main = 1
+                            WHERE is_main = 1 AND status = 1
                             ORDER BY distance;");
         while ($route = $query->fetch()) {
             echo getHtmlProduct($route);

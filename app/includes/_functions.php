@@ -378,7 +378,7 @@ function getRouteDetails(PDO $dbCo, $idRoute)
                                 JOIN img USING (id_img)
                                 JOIN categorize USING(id_route)
                                 JOIN class_route USING(id_class_route)
-                            WHERE is_main = 1 AND id_route = :idRoute;");
+                            WHERE is_main = 1 AND id_route = :idRoute AND status = 1;");
 
     $isQueryOk = $query->execute(["idRoute" => $idRoute]);
     $route = $query->fetchAll();

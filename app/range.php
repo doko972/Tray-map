@@ -1,7 +1,10 @@
 <section>
     <div class="range-container">
-        <form class="range-search-dy" action="/action_page.php">
+        <form class="range-search-dy" action="/action_page.php" method="POST">
             <input class="search-form" type="text" placeholder="Rechercher votre ville..." name="search">
+            <input type="hidden" name="action" value="search">
+            <!-- //token  dont forget to send token-->
+            <input type="hidden" name="action" value="search">
             <button type="submit" class="search-btn">
                 <img src="img/loupe.png" alt="Recherche" class="search-icon">
             </button>
@@ -44,6 +47,5 @@
             </div>
         </div>
         <button class="range-btn btn" type="submit">Rechercher</button>
-    </div>
     </div>
 </section>
