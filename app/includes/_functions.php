@@ -300,8 +300,7 @@ function constructSqlSearchRoute($data): array
  */
 function getRoutesBySearchParam(PDO $dbCo, array $data): array
 {
-    // $finalData = constructSqlSearchRoute($data);
-    // var_dump($request);
+
     $query = $dbCo->prepare($data["sqlRequest"]);
     $isQueryOk = $query->execute($data["bind"]);
     $routes = $query->fetchAll();
@@ -318,14 +317,15 @@ function getRoutesBySearchParam(PDO $dbCo, array $data): array
 /**
  * if the value isnt numeric will call addError() and redirectTo()
  * @param mixed $value 
- * @return void 
+ * @return int 
  */
-function isNumericInt($value): void
+function numericInt($value): int
 {
     if (!is_numeric($value)) {
         addError('Numeric_KO');
         redirectTo();
     }
+   return intval($value);
 }
 
 
