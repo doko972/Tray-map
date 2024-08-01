@@ -30,6 +30,22 @@ function addError(string $errorMsg): void
     $_SESSION['errorsList'][] = $errorMsg;
 }
 
+/**
+ * Add a new message to display on next page. 
+ *
+ * @param string $message - Message to display
+ * @return void
+ */
+function addMessage(string $message): void
+{
+    if (!isset($_SESSION['msg'])) {
+        $_SESSION['msg'] = [];
+    }
+    $_SESSION['msg'][] = $message;
+}
+
+
+
 function redirectTo(string $url = "index.php"): void
 {
     if (headers_sent()) {
@@ -305,8 +321,7 @@ function constructSqlSearchRoute($data): array
  */
 function getRoutesBySearchParam(PDO $dbCo, array $data): array
 {
-    // $finalData = constructSqlSearchRoute($data);
-    // var_dump($request);
+
     $query = $dbCo->prepare($data["sqlRequest"]);
     $isQueryOk = $query->execute($data["bind"]);
     $routes = $query->fetchAll();
@@ -323,14 +338,19 @@ function getRoutesBySearchParam(PDO $dbCo, array $data): array
 /**
  * if the value isnt numeric will call addError() and redirectTo()
  * @param mixed $value 
- * @return void 
+ * @return int the int value of the input.
  */
-function isNumericInt($value): void
+function numericInt($value, $redirectURL): ?int
 {
-    if (!is_numeric($value)) {
-        addError('Numeric_KO');
-        redirectTo();
+    if (!isset($value)) {
+        addError('set_KO');
+        redirectTo($redirectURL);
     }
+    if (!is_numeric($value)) {
+        addError('numeric_KO');
+        redirectTo($redirectURL);
+    }
+    return intval($value);
 }
 
 
@@ -360,7 +380,35 @@ function getRouteDetails(PDO $dbCo, $idRoute)
                                 JOIN class_route USING(id_class_route)
                             WHERE is_main = 1 AND id_route = :idRoute;");
 
-    $isQueryOk = $query->execute(["idRoute"=> $idRoute]);
+    $isQueryOk = $query->execute(["idRoute" => $idRoute]);
+    $route = $query->fetchAll();
+    if (!$isQueryOk) {
+        addError('select_ko');
+        redirectTo();
+    }
+    return $route;
+}
+
+
+
+// INSERT INTO table (nom_colonne_1, nom_colonne_2, ...
+//  VALUES ('valeur 1', 'valeur 2', ...)
+function addNewRouteWithoutImg(PDO $dbCo, $data)
+{
+    $query = $dbCo->prepare("INSERT INTO route (title, distance, difficulty,
+    status, id_person, description,time_stamp )
+    VALUES (:title,:distance ,:difficulty,:status,:idPerson , :discription, :timeStamp)
+     ");
+
+    $isQueryOk = $query->execute([
+        "title" => $data['title'],
+        "distance" => $data['distance'],
+        "difficulty" => $data['difficulty'],
+        "status" => $data['status'],
+        "idPerson" => $data['idPerson'],
+        "discription" => $data['discription'],
+        "timeStamp" => $data['timeStamp']
+    ]);
     $route = $query->fetchAll();
     if (!$isQueryOk) {
         addError('select_ko');

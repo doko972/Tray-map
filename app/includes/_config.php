@@ -14,11 +14,12 @@ $errors = [
     // 'access_denied' => 'Accès refusé.'
     'select_ko' => 'error selection',
     'search_ko' => 'Voulez vous choisir des critic des researchs',
-    'numeric_KO' => 'Error one of values isnt numeric '
+    'numeric_KO' => 'Ce champ ne doit pas être vide',
+    'isSet_KO'=>"this field should not be empty"
 ];
 
 $messages = [
-    // 'insert_ok' => 'Utilisateur sauvegardé avec succès.',
+    'insert_ok' => 'Utilisateur sauvegardé avec succès.'
     // 'update_ok' => 'Utilisateur modifié avec succès.',
     // 'login_success' => 'Connexion réussie.',
     // 'logout_success' => 'Déconnexion réussie.',

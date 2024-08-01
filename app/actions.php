@@ -11,10 +11,11 @@ include 'includes/_templates.php';
 // var_dump(getRouteDetails($dbCo,1));
 
 
+
 // var_dump(getRouteDetails($dbCo,1));
 
-$route = getRouteDetails($dbCo,1);
-echo getHtmlProduct($route[0]);
+// $route = getRouteDetails($dbCo,1);
+// echo getHtmlProduct($route[0]);
 
 
 
