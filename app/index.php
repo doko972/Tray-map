@@ -17,7 +17,6 @@ include 'includes/_templates.php';
 <body>
 <?php include 'header.php'; ?>
     <main>
-
         <section>
             <h1 class="main-ttl">trailshare - <br> la communauté des amateurs de randonnées et de cyclotourisme</h1>
         </section>
