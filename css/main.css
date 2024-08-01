@@ -18,6 +18,7 @@ body {
   --black: #1d1d1d;
   --blue: #aeb8fe;
   --grey: #dedede;
+  --grey-d: #D9D9D9;
   --darkGrey: #837f7fb9;
   --gradient: rgba(67, 69, 77, 0.521);
   font-size: 16px;
@@ -379,7 +380,6 @@ input[type=search] {
   font-size: 14px;
   color: inherit;
   /* border: 1px solid transparent; */
-  border-radius: inherit;
 }
 
 input[type=search]::placeholder {
