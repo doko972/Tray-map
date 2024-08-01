@@ -343,6 +343,17 @@ body {
   line-height: 3rem;
 }
 
+.container-bio {
+  width: 100%;
+}
+
+.profile-img {
+  width: 122px;
+  height: 122px;
+  border-radius: 5rem;
+  border: 5px solid var(--white);
+}
+
 /*RANGE*/
 .range-container {
   padding: 0 1.25rem 1.25rem 1.25rem;
