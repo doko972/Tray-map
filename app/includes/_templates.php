@@ -1,5 +1,7 @@
 <?php
 
+
+
 function getHtmlProduct(array $route): string{
 
     return '<section class="trail-card">'
