@@ -23,7 +23,6 @@ $newRoute = [
     "timeStamp" => $now = date_create()->format('Y-m-d H:i:s')
   
 ];
-exit;
 
 // $newRoute = [
 //     "title" =>"caen",
