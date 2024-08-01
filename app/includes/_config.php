@@ -15,7 +15,8 @@ $errors = [
     'select_ko' => 'error selection',
     'search_ko' => 'Voulez vous choisir des critic des researchs',
     'numeric_KO' => 'Ce champ ne doit pas être vide',
-    'isSet_KO'=>"this field should not be empty"
+    'isSet_KO'=>"this field should not be empty",
+    'research_ko' => "Il n'y a pas de résultat."
 ];
 
 $messages = [

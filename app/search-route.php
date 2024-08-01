@@ -15,8 +15,6 @@ if (!$_REQUEST['action'] === 'search') {
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -28,7 +26,7 @@ if (!$_REQUEST['action'] === 'search') {
 </head>
 
 <body>
-<?php include 'header.php'; ?>
+    <?php include 'header.php'; ?>
     <main>
         <section>
             <h1 class="main-ttl">trailshare - <br> la communauté des amateurs de randonnées et de cyclotourisme</h1>
@@ -44,23 +42,25 @@ if (!$_REQUEST['action'] === 'search') {
             <button class="trail-create-btn btn">Créer un parcours</button>
         </section>
 
-<?php
+        <?php
 
-if ($_REQUEST['action'] === 'search') {
+        if ($_REQUEST['action'] === 'search') {
 
-    $dataStrip = stripTagsArray($_REQUEST);
-    $sqlResuest = constructSqlSearchRoute($dataStrip);
-    $idRoutes = getRoutesBySearchParam($dbCo, $sqlResuest);
-    foreach ($idRoutes as $value) {
-        $route = getRouteDetails($dbCo, $value['id_route']);
-        echo getHtmlProduct($route[0]);
-    }
-}
-?>
+            $dataStrip = stripTagsArray($_REQUEST);
+            $sqlResuest = constructSqlSearchRoute($dataStrip);
+            $idRoutes = getRoutesBySearchParam($dbCo, $sqlResuest);
+            foreach ($idRoutes as $value) {
+                $route = getRouteDetails($dbCo, $value['id_route']);
+                if (!empty($route[0])) {
+                    echo getHtmlProduct($route[0]);
+                }
+            }
+            echo "<p class='notif-error'>Il n'y a pas de résultat.</p>";
+        }
+        ?>
 
-<?php include 'range.php'; ?>
-    <?php include 'footer.php'; ?>
-    <script src="./js/burger.js"></script>
+        <?php include 'footer.php'; ?>
+        <script src="./js/burger.js"></script>
 </body>
 
 </html>
