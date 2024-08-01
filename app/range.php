@@ -1,6 +1,6 @@
 <section>
     <div class="range-container">
-        <form class="range-search-dy" action="/action_page.php" method="POST">
+        <form class="range-search-dy" action="search-route.php" method="POST">
             <input class="search-form" type="text" placeholder="Rechercher votre ville..." name="search">
             <input type="hidden" name="action" value="search">
             <!-- //token  dont forget to send token-->
