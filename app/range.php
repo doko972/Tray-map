@@ -1,20 +1,24 @@
 <section>
     <div class="range-container">
         <form class="range-search-dy" action="/action_page.php" method="POST">
-            <input class="search-form" type="text" placeholder="Rechercher votre ville..." name="search">
-            <input type="hidden" name="action" value="search">
-            <!-- //token  dont forget to send token-->
-            <input type="hidden" name="action" value="search">
-            <button type="submit" class="search-btn">
-                <img src="img/loupe.png" alt="Recherche" class="search-icon">
-            </button>
-        </form>
-        <div class="range-options">
-            <div class="range-choice">
-                <div class="range_radio-ad">
-                    <label for="distance">Distance</label>
-                </div>
+            <section>
+                <input class="search-form" type="text" placeholder="Rechercher votre ville..." name="search">
+                <input type="hidden" name="action" value="search">
+                <!-- //token  dont forget to send token-->
+                <input type="hidden" name="action" value="search">
+                <button type="submit" class="search-btn">
+                    <img src="img/loupe.png" alt="Recherche" class="search-icon">
+                </button>
+            </section>
+            <div class="range-options">
+                <div class="range-choice">
+                    <div class="range_radio-ad">
+                        <label for="distance">Distance</label>
+                        <input name="distance" type="range" id="distance" min="1" max="100" oninput="this.nextElementSibling.value = this.value">
+                        <output>100</output> km
 
+                    </div>
+                </div>
                 <div class="range-choice">
                     <legend>Difficulté:</legend>
                     <?php
@@ -23,12 +27,6 @@
                         echo AddsHtmlDifficulty($difficulty);
                     }
                     ?>
-                    <!-- <input type="radio" id="easy" name="difficulty_name" value="1">
-                    <label for="easy">Facile</label><br>
-                    <input type="radio" id="medium" name="difficulty_name" value="2">
-                    <label for="medium">Moyen</label><br>
-                    <input type="radio" id="hard" name="difficulty_name" value="3">
-                    <label for="hard">Difficile</label><br> -->
                 </div>
 
                 <div class="range-choice">
@@ -39,13 +37,9 @@
                         echo AddsHtmlClassRoute($classRoute);
                     }
                     ?>
-                    <!-- <input type="radio" id="onfoot" name="class_route" value="1">
-                    <label for="onfoot">A Pieds</label><br>
-                    <input type="radio" id="bike" name="class_route" value="2">
-                    <label for="bike">Vélo</label><br> -->
                 </div>
                 <button class="range-btn btn" type="submit">Rechercher</button>
             </div>
-        </form>
+            </form>
     </div>
 </section>
