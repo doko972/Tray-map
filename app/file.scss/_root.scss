@@ -8,7 +8,13 @@
     --gradient: rgba(67, 69, 77, 0.521);
     font-size: 16px;
   }
-  
+   @font-face {
+    font-display: swap;
+    font-family: "CabinCondensed";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/CabinCondensed-Regular.ttf") format("woff2");
+  }
   @font-face {
     font-display: swap;
     font-family: "Broaek - Thin";
@@ -32,7 +38,4 @@
     font-weight: 400;
     src: url("/fonts/Broaek- Regular.ttf") format("woff2");
   }
-  @font-face {
-    font-family: CabinCondensed;
-    src: url(../fonts/CabinCondensed-Regular.ttf);
-  }
+ 
