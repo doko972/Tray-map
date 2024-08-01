@@ -30,6 +30,18 @@ function addError(string $errorMsg): void
     $_SESSION['errorsList'][] = $errorMsg;
 }
 
+/**
+ * Add a new message to display on next page. 
+ *
+ * @param string $message - Message to display
+ * @return void
+ */
+function addMessage(string $message): void
+{
+    $_SESSION['msg'] = $message;
+}
+
+
 function redirectTo(string $url = "index.php"): void
 {
     if (headers_sent()) {
@@ -321,7 +333,7 @@ function getRoutesBySearchParam(PDO $dbCo, array $data): array
  */
 function numericInt($value): int
 {
-    if(!isset($value)){
+    if (!isset($value)) {
         addError('set_KO');
         redirectTo();
     }
@@ -329,7 +341,7 @@ function numericInt($value): int
         addError('numeric_KO');
         redirectTo();
     }
-   return intval($value);
+    return intval($value);
 }
 
 
@@ -377,17 +389,17 @@ function addNewRouteWithoutImg(PDO $dbCo, $data)
 {
     $query = $dbCo->prepare("INSERT INTO route (title, distance, difficulty,
     status, id_person, description,time_stamp )
-    VALUES (:title,:distance ,:difficulty,:idPerson ,:discription, now())
+    VALUES (:title,:distance ,:difficulty,:status,:idPerson , :discription, :timeStamp)
      ");
 
     $isQueryOk = $query->execute([
         "title" => $data['title'],
         "distance" => $data['distance'],
-        "difficulty" => $data['difficulty_name'],
+        "difficulty" => $data['difficulty'],
         "status" => $data['status'],
-        "idPerson" => $data['idUser'],
-        "discription" => $data['discription']
-
+        "idPerson" => $data['idPerson'],
+        "discription" => $data['discription'],
+        "timeStamp" => $data['timeStamp']
     ]);
     $route = $query->fetchAll();
     if (!$isQueryOk) {
