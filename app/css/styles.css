@@ -433,9 +433,11 @@ input[type="search"]:focus {
   align-items: center;
   gap: 10px;
 }
+
 .range_radio-alg-v{
   margin-right: 1.7rem;
 }
+
 .range_radio-alg-f{
   margin-right: 2rem;
 }
