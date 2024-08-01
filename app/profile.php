@@ -11,19 +11,19 @@ include 'includes/_templates.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page de profil</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="./file.scss//main.scss">
 </head>
 
 <body>
     <?php include 'header.php'; ?>
     <main>
-        <section class="profile-bck">
-            <div class="profile-alg">
-                <div class="profile-photo">
-                    <img class="profile-photo_ff" src="img/profile-photo.png" alt="Photo de l'utulisateur">
-                    <button class="profile-photo_btn">Editer le profil</button>
-                </div>
+        <section class="top-container">
+            <div>
+                <p>Profil</p>
+                <a href=""><img src="./img/edit.png" alt="éditer"></a>
             </div>
+            <img class="profile-img" src="img/profile-photo.png" alt="Photo de l'utulisateur">
+
         </section>
     </main>
     <?php include 'footer.php'; ?>
