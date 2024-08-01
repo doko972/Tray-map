@@ -1,14 +1,18 @@
-<section class="range-container">
-    <div class="range-nav">
-        <form method="post" action="search-route.php">
+<section>
+    <div class="range-container">
+        <form class="range-search-dy" action="/action_page.php" method="POST">
+            <input class="search-form" type="text" placeholder="Rechercher votre ville..." name="search">
+            <input type="hidden" name="action" value="search">
             <!-- //token  dont forget to send token-->
             <input type="hidden" name="action" value="search">
-            <input class="range-search" type="text" placeholder="Search.." name="title">
-            <div class="range-options">
-                <div class="range-choice">
-                    <label for="distance">Distance:</label>
-                    <input name="distance" type="range" id="distance" min="1" max="100" oninput="this.nextElementSibling.value = this.value">
-                    <output>100</output> km
+            <button type="submit" class="search-btn">
+                <img src="img/loupe.png" alt="Recherche" class="search-icon">
+            </button>
+        </form>
+        <div class="range-options">
+            <div class="range-choice">
+                <div class="range_radio-ad">
+                    <label for="distance">Distance</label>
                 </div>
 
                 <div class="range-choice">
@@ -44,5 +48,4 @@
             </div>
         </form>
     </div>
-
 </section>

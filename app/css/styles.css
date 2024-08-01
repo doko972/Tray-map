@@ -238,17 +238,6 @@ body {
   margin-bottom: 3rem;
 }
 
-/* .btn {
-  background-color: var(--green);
-  border: none;
-  border-radius: 50px;
-  color: var(--black);
-  font-size: 1rem;
-  padding: 10px 24px 10px 24px;
-  margin-top: 1.5rem;
-  max-width: 10rem;
-} */
-
 .btn {
   display: inline-block;
   cursor: pointer;
