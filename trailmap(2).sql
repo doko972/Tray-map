@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: db
--- Generation Time: Jul 30, 2024 at 08:07 AM
--- Server version: 8.0.37
--- PHP Version: 8.2.8
+-- Hôte : db
+-- Généré le : mer. 31 juil. 2024 à 12:54
+-- Version du serveur : 8.0.37
+-- Version de PHP : 8.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `trailmap`
+-- Base de données : `trailmap`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorize`
+-- Structure de la table `categorize`
 --
 
 CREATE TABLE `categorize` (
@@ -32,21 +32,40 @@ CREATE TABLE `categorize` (
   `id_class_route` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Déchargement des données de la table `categorize`
+--
+
+INSERT INTO `categorize` (`id_route`, `id_class_route`) VALUES
+(3, 1),
+(4, 1),
+(1, 2),
+(2, 2);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `class_route`
+-- Structure de la table `class_route`
 --
 
 CREATE TABLE `class_route` (
   `id_class_route` int NOT NULL,
-  `class_name` varchar(50) NOT NULL
+  `class_name` varchar(50) NOT NULL,
+  `illustration_img` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `class_route`
+--
+
+INSERT INTO `class_route` (`id_class_route`, `class_name`, `illustration_img`) VALUES
+(1, 'onfoot', './img/Walking.png'),
+(2, 'bike', './img/Vector.png');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comment`
+-- Structure de la table `comment`
 --
 
 CREATE TABLE `comment` (
@@ -60,29 +79,79 @@ CREATE TABLE `comment` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `illustrer`
+-- Structure de la table `difficulty`
+--
+
+CREATE TABLE `difficulty` (
+  `id_difficulty` int NOT NULL,
+  `name` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `difficulty`
+--
+
+INSERT INTO `difficulty` (`id_difficulty`, `name`) VALUES
+(1, 'Facile'),
+(2, 'Moyen'),
+(3, 'Difficile');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `illustrer`
 --
 
 CREATE TABLE `illustrer` (
   `id_route` int NOT NULL,
-  `id_img` int NOT NULL
+  `id_img` int NOT NULL,
+  `is_main` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `illustrer`
+--
+
+INSERT INTO `illustrer` (`id_route`, `id_img`, `is_main`) VALUES
+(1, 1, 0),
+(1, 2, 1),
+(2, 3, 0),
+(2, 4, 1),
+(3, 5, 0),
+(3, 6, 1),
+(4, 7, 0),
+(4, 8, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `img`
+-- Structure de la table `img`
 --
 
 CREATE TABLE `img` (
   `id_img` int NOT NULL,
-  `URL` varchar(255) NOT NULL
+  `URL` varchar(255) NOT NULL,
+  `alt` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `img`
+--
+
+INSERT INTO `img` (`id_img`, `URL`, `alt`) VALUES
+(1, 'img/route_1.webp', ''),
+(2, 'img/route_1-1.webp', ''),
+(3, 'img/route_2.webp', ''),
+(4, 'img/route_2-1.webp', ''),
+(5, 'img/route_3.webp', ''),
+(6, 'img/route_3-1.webp', ''),
+(7, 'img/route_4.webp', ''),
+(8, 'img/route_4-1.webp', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `location`
+-- Structure de la table `location`
 --
 
 CREATE TABLE `location` (
@@ -96,7 +165,7 @@ CREATE TABLE `location` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `person`
+-- Structure de la table `person`
 --
 
 CREATE TABLE `person` (
@@ -111,7 +180,7 @@ CREATE TABLE `person` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `person`
+-- Déchargement des données de la table `person`
 --
 
 INSERT INTO `person` (`id_person`, `photo`, `bio`, `email`, `password`, `locate`, `create_date`, `id_role`) VALUES
@@ -124,12 +193,13 @@ INSERT INTO `person` (`id_person`, `photo`, `bio`, `email`, `password`, `locate`
 (7, 'http://dummyimage.com/220x100.png/cc0000/ffffff', 'Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.', 'nsolomon6@wufoo.com', '$2a$04$c3dW6Ly43XytdySmtrUaweMKuR8qbrYw477kVLlS4l8NVrpvgMPQO', 'Kavadarci', '0000-00-00 00:00:00', 0),
 (8, 'http://dummyimage.com/138x100.png/dddddd/000000', 'Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.', 'cdewey7@youtu.be', '$2a$04$DhloBnYHPChbmnxSqihNzOXyGMPV2QjTw/6Y17br1TMyvefRz//hy', 'Pardubice', '0000-00-00 00:00:00', 0),
 (9, 'http://dummyimage.com/142x100.png/dddddd/000000', 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.', 'ssidworth8@shareasale.com', '$2a$04$wpFc5d2fY2CEIZKhPXzQ/Oan9aicOIygXuUlv5cTj7f1C5qo2/aWO', 'Теарце', '0000-00-00 00:00:00', 0),
-(10, 'http://dummyimage.com/183x100.png/cc0000/ffffff', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum.', 'amugleston9@economist.com', '$2a$04$Dx4pG2vEHkaNa1WuLCy9VuwzZmBtbIDVWa8xwgmknRaKVXIhG3rxi', 'Purificación', '0000-00-00 00:00:00', 0);
+(10, 'http://dummyimage.com/183x100.png/cc0000/ffffff', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum.', 'amugleston9@economist.com', '$2a$04$Dx4pG2vEHkaNa1WuLCy9VuwzZmBtbIDVWa8xwgmknRaKVXIhG3rxi', 'Purificación', '0000-00-00 00:00:00', 0),
+(11, NULL, NULL, 'doko972@gmail.com', '$2y$10$osnQqYWMQDm0Dahbu9zqR.BvEY0G1uL1CpwDDND85R7vxru4zGzpe', NULL, '2024-07-31 12:45:07', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role`
+-- Structure de la table `role`
 --
 
 CREATE TABLE `role` (
@@ -138,7 +208,7 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `role`
+-- Déchargement des données de la table `role`
 --
 
 INSERT INTO `role` (`id_role`, `role_name`) VALUES
@@ -148,7 +218,7 @@ INSERT INTO `role` (`id_role`, `role_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `route`
+-- Structure de la table `route`
 --
 
 CREATE TABLE `route` (
@@ -156,46 +226,41 @@ CREATE TABLE `route` (
   `time_stamp` datetime NOT NULL,
   `title` varchar(100) NOT NULL,
   `distance` tinyint UNSIGNED NOT NULL,
-  `difficulty` varchar(50) NOT NULL,
+  `difficulty` int NOT NULL,
   `status` tinyint(1) NOT NULL,
-  `id_person` int NOT NULL
+  `id_person` int NOT NULL,
+  `description` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `route`
+-- Déchargement des données de la table `route`
 --
 
-INSERT INTO `route` (`id_route`, `time_stamp`, `title`, `distance`, `difficulty`, `status`, `id_person`) VALUES
-(1, '2024-04-04 18:32:01', 'San Marcos', 1, 'facile', 0, 1),
-(2, '2023-09-01 01:43:55', 'Mojorejo', 2, 'difficult', 0, 2),
-(3, '2024-06-09 22:05:59', 'Santa Lucía', 3, 'v.facile', 0, 3),
-(4, '2024-04-27 13:09:44', 'Pitangueiras', 4, 'v.difficult', 0, 4),
-(5, '2024-02-28 15:45:08', 'Santa Clara', 5, 'difficult', 0, 5),
-(6, '2024-04-30 07:23:59', 'Pisang', 6, 'facile', 0, 6),
-(7, '2023-12-23 01:07:31', 'Lianzhu', 7, 'intermédiaire', 0, 7),
-(8, '2023-11-05 00:16:17', 'San Francisco', 8, 'facile', 0, 8),
-(9, '2024-06-25 23:29:26', 'Xihongmen', 9, 'intermédiaire', 0, 9),
-(10, '2024-01-31 07:40:48', 'Pórto Chéli', 10, 'difficult', 0, 10);
+INSERT INTO `route` (`id_route`, `time_stamp`, `title`, `distance`, `difficulty`, `status`, `id_person`, `description`) VALUES
+(1, '2024-04-04 18:32:01', 'CLE Suisse Normande', 107, 3, 0, 1, 'Découvrez ce parcours de vélo de 108,7 km à proximité de Cormelles-le-Royal. Ce\r\n parcours emprunte 82 km de routes et 26,7 km de pistes cyclables. Il présente une ascension cumulée de             plus de 1160m'),
+(2, '2023-09-01 01:43:55', 'Vallée de L\'Aise au départ de Ifs', 50, 2, 0, 2, 'Découvrez ce parcours de vélo de 50,2 km à proximité de Ifs. Il présente une\r\nascension cumulée de plus de 410m'),
+(3, '2024-06-09 22:05:59', 'Louvigny / Le Rocreuil', 11, 1, 0, 3, 'Découvrez ce parcours de marche nordique de 11 km à proximité de Louvigny. Ce parcours emprunte 5 km de chemins et 2,2 km de pistes forestières'),
+(4, '2024-04-27 13:09:44', 'Abbaye d\'Ardennes au jardin public de Caen', 13, 1, 0, 4, 'Découvrez ce parcours de marche de 12,5 km à proximité de Saint-Germain-la-Blanche-Herbe. Ce parcours emprunte 9,2 km de routes et 1,3 km de pistes cyclables.Prévoyez environ 3 heures et 20 minutes pour réaliser ce parcours');
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `categorize`
+-- Index pour la table `categorize`
 --
 ALTER TABLE `categorize`
   ADD PRIMARY KEY (`id_route`,`id_class_route`),
   ADD KEY `id_class_route` (`id_class_route`);
 
 --
--- Indexes for table `class_route`
+-- Index pour la table `class_route`
 --
 ALTER TABLE `class_route`
   ADD PRIMARY KEY (`id_class_route`);
 
 --
--- Indexes for table `comment`
+-- Index pour la table `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`id_comment`),
@@ -203,27 +268,27 @@ ALTER TABLE `comment`
   ADD KEY `id_person` (`id_person`);
 
 --
--- Indexes for table `illustrer`
+-- Index pour la table `illustrer`
 --
 ALTER TABLE `illustrer`
   ADD PRIMARY KEY (`id_route`,`id_img`),
   ADD KEY `id_img` (`id_img`);
 
 --
--- Indexes for table `img`
+-- Index pour la table `img`
 --
 ALTER TABLE `img`
   ADD PRIMARY KEY (`id_img`);
 
 --
--- Indexes for table `location`
+-- Index pour la table `location`
 --
 ALTER TABLE `location`
   ADD PRIMARY KEY (`id_location`),
   ADD KEY `id_route` (`id_route`);
 
 --
--- Indexes for table `person`
+-- Index pour la table `person`
 --
 ALTER TABLE `person`
   ADD PRIMARY KEY (`id_person`),
@@ -231,103 +296,103 @@ ALTER TABLE `person`
   ADD KEY `role` (`id_role`);
 
 --
--- Indexes for table `role`
+-- Index pour la table `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`id_role`);
 
 --
--- Indexes for table `route`
+-- Index pour la table `route`
 --
 ALTER TABLE `route`
   ADD PRIMARY KEY (`id_route`),
   ADD KEY `id_person` (`id_person`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `class_route`
+-- AUTO_INCREMENT pour la table `class_route`
 --
 ALTER TABLE `class_route`
-  MODIFY `id_class_route` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_class_route` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `comment`
+-- AUTO_INCREMENT pour la table `comment`
 --
 ALTER TABLE `comment`
   MODIFY `id_comment` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `img`
+-- AUTO_INCREMENT pour la table `img`
 --
 ALTER TABLE `img`
-  MODIFY `id_img` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_img` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `location`
+-- AUTO_INCREMENT pour la table `location`
 --
 ALTER TABLE `location`
   MODIFY `id_location` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `person`
+-- AUTO_INCREMENT pour la table `person`
 --
 ALTER TABLE `person`
-  MODIFY `id_person` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_person` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `role`
+-- AUTO_INCREMENT pour la table `role`
 --
 ALTER TABLE `role`
   MODIFY `id_role` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `route`
+-- AUTO_INCREMENT pour la table `route`
 --
 ALTER TABLE `route`
   MODIFY `id_route` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `categorize`
+-- Contraintes pour la table `categorize`
 --
 ALTER TABLE `categorize`
   ADD CONSTRAINT `categorize_ibfk_1` FOREIGN KEY (`id_route`) REFERENCES `route` (`id_route`),
   ADD CONSTRAINT `categorize_ibfk_2` FOREIGN KEY (`id_class_route`) REFERENCES `class_route` (`id_class_route`);
 
 --
--- Constraints for table `comment`
+-- Contraintes pour la table `comment`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`id_route`) REFERENCES `route` (`id_route`),
   ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`id_person`) REFERENCES `person` (`id_person`);
 
 --
--- Constraints for table `illustrer`
+-- Contraintes pour la table `illustrer`
 --
 ALTER TABLE `illustrer`
   ADD CONSTRAINT `illustrer_ibfk_1` FOREIGN KEY (`id_route`) REFERENCES `route` (`id_route`),
   ADD CONSTRAINT `illustrer_ibfk_2` FOREIGN KEY (`id_img`) REFERENCES `img` (`id_img`);
 
 --
--- Constraints for table `location`
+-- Contraintes pour la table `location`
 --
 ALTER TABLE `location`
   ADD CONSTRAINT `location_ibfk_1` FOREIGN KEY (`id_route`) REFERENCES `route` (`id_route`);
 
 --
--- Constraints for table `person`
+-- Contraintes pour la table `person`
 --
 ALTER TABLE `person`
   ADD CONSTRAINT `person_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`);
 
 --
--- Constraints for table `route`
+-- Contraintes pour la table `route`
 --
 ALTER TABLE `route`
   ADD CONSTRAINT `route_ibfk_1` FOREIGN KEY (`id_person`) REFERENCES `person` (`id_person`);
