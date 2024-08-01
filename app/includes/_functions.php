@@ -356,7 +356,34 @@ function getRouteDetails(PDO $dbCo, $idRoute)
                                 JOIN class_route USING(id_class_route)
                             WHERE is_main = 1 AND id_route = :idRoute;");
 
-    $isQueryOk = $query->execute(["idRoute"=> $idRoute]);
+    $isQueryOk = $query->execute(["idRoute" => $idRoute]);
+    $route = $query->fetchAll();
+    if (!$isQueryOk) {
+        addError('select_ko');
+        redirectTo();
+    }
+    return $route;
+}
+
+
+
+// INSERT INTO table (nom_colonne_1, nom_colonne_2, ...
+//  VALUES ('valeur 1', 'valeur 2', ...)
+function addNewRouteWithoutImg(PDO $dbCo, $id_user, $data)
+{
+    $query = $dbCo->prepare("INSERT INTO route (title, distance, difficulty,
+    status, id_person, description,time_stamp )
+    VALUES (:title,:distance ,:difficulty, :discription, now())
+     ");
+
+    $isQueryOk = $query->execute([
+        "title" => $data['title'],
+        "distance" => $data['distance'],
+        "difficulty" => $data['difficulty_name'],
+        "status" => $data['status'],
+        "discription" => $data['discription']
+
+    ]);
     $route = $query->fetchAll();
     if (!$isQueryOk) {
         addError('select_ko');

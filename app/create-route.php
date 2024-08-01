@@ -6,15 +6,15 @@ include 'includes/_templates.php';
 ?>
 
 
-<form class="create-route-form" method="post" action="create-route.php">
+<form class="create-route-form" method="post" action="display-create-route.php">
     <!-- //token  dont forget to send token-->
     <input type="hidden" name="action" value="createRoute">
     <label class="create-route-ttl__label" for="title">Route title</label><br>
-    <input class="create-route-ttl__input" type="text" placeholder="ex caen-herouville 5 km.." name="title">
+    <input class="create-route-ttl__input" type="text" placeholder="ex caen-herouville 5 km.." name="title" required>
     <div class="create-route-path">
         <div class="create-route-path__choice">
             <label class="create-route-path__label" for="distance">Path longer:</label>
-            <input class="create-route-path__input" name="distance" type="range" id="distance" min="1" max="100" oninput="this.nextElementSibling.value = this.value">
+            <input class="create-route-path__input" name="distance" type="range" id="distance" min="1" max="100" oninput="this.nextElementSibling.value = this.value" required>
             <output>100</output> km
         </div>
 
@@ -35,13 +35,13 @@ include 'includes/_templates.php';
             <label class="create-route-mode__label" for="bike">Vélo</label><br>
         </div>
         <div class="create-route-discription">
-            <label for="discription" class="create-route-discription__label">Tell us your story:</label>
+            <label for="discription" class="create-route-discription__label">discription</label>
 
-            <textarea class="create-route-discription__txt" id="discription" name="discription">
+            <textarea class="create-route-discription__txt" id="discription" name="discription" required>
            write a discription for the path.
         </textarea>
         </div>
-        <button class="create-route-submit--publish" class="range-btn btn" type="submit" value="0">Publish</button>
+        <button class="create-route-submit--publish" class="range-btn btn" type="submit" value="1">Publish</button>
         <button class="create-route-submit--draft" class="range-btn btn" type="submit" value="0">Draft</button>
     </div>
 </form>
