@@ -14,14 +14,14 @@ $data["status"] = 0;
 
 $newRoute = [
     "title" => $data['title'],
-    "distance" =>  $data['distance'],
-    "difficulty" =>  $data['difficulty_name'],
-    "status" => ($data['status']),
+    "distance" =>  numericInt($data['distance']),
+    "difficulty" =>  numericInt($data['difficulty_name']),
+    "status" => numericInt($data['status']),
     // "idPerson" =>  numericInt($data['idUser']),
     "idPerson" => 1,
     "discription" => $data['discription'],
     "timeStamp" => $now = date_create()->format('Y-m-d H:i:s')
-  
+
 ];
 
 // $newRoute = [

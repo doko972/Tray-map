@@ -14,9 +14,9 @@ $data["status"]=1;
 
 $newRoute = [
     "title" => $data['title'],
-    "distance" =>  $data['distance'],
-    "difficulty" =>  $data['difficulty_name'],
-    "status" => ($data['status']),
+    "distance" =>  numericInt($data['distance']),
+    "difficulty" =>  numericInt($data['difficulty_name']),
+    "status" => numericInt($data['status']),
     // "idPerson" =>  numericInt($data['idUser']),
     "idPerson" => 1,
     "discription" => $data['discription'],
