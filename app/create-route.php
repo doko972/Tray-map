@@ -1,6 +1,14 @@
+<?php
+session_start();
+include 'includes/_database.php';
+include 'includes/_functions.php';
+include 'includes/_templates.php';
+?>
+
+
 <form class="create-route-form" method="post" action="create-route.php">
     <!-- //token  dont forget to send token-->
-    <input type="hidden" name="action" value="create">
+    <input type="hidden" name="action" value="createRoute">
     <label class="create-route-ttl__label" for="title">Route title</label><br>
     <input class="create-route-ttl__input" type="text" placeholder="ex caen-herouville 5 km.." name="title">
     <div class="create-route-path">
@@ -26,14 +34,14 @@
             <input class="create-route-mode__input" type="radio" id="bike" name="class_route" value="2">
             <label class="create-route-mode__label" for="bike">Vélo</label><br>
         </div>
-        <div  class="create-route-discription">
+        <div class="create-route-discription">
             <label for="discription" class="create-route-discription__label">Tell us your story:</label>
 
             <textarea class="create-route-discription__txt" id="discription" name="discription">
            write a discription for the path.
         </textarea>
         </div>
-
-        <button class="create-route-submit" class="range-btn btn" type="submit">créer</button>
+        <button class="create-route-submit--publish" class="range-btn btn" type="submit" value="0">Publish</button>
+        <button class="create-route-submit--draft" class="range-btn btn" type="submit" value="0">Draft</button>
     </div>
 </form>
