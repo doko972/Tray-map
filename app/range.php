@@ -12,9 +12,9 @@ echo getHtmlErrors($errors);
             <input type="hidden" id="token" name="token" value="<?= $_SESSION['token'] ?>">
             <div class="range-options">
                 <input class="search-form" type="text" placeholder="Rechercher votre ville..." name="title">
-                <button type="submit" class="search-btn">
+                <!-- <button type="submit" class="search-btn">
                 <img src="img/loupe.png" alt="Recherche" class="search-icon">
-             </button>
+             </button> -->
             </div>
             <div class="range-options">
                 <div class="range-choice">

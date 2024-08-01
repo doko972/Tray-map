@@ -389,8 +389,6 @@ function getRouteDetails(PDO $dbCo, $idRoute)
 
 
 
-// INSERT INTO table (nom_colonne_1, nom_colonne_2, ...
-//  VALUES ('valeur 1', 'valeur 2', ...)
 function addNewRouteWithoutImg(PDO $dbCo, $data)
 {
     $query = $dbCo->prepare("INSERT INTO route (title, distance, difficulty,
