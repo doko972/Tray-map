@@ -19,7 +19,7 @@ $errors = [
 ];
 
 $messages = [
-    // 'insert_ok' => 'Utilisateur sauvegardé avec succès.',
+    'insert_ok' => 'Utilisateur sauvegardé avec succès.'
     // 'update_ok' => 'Utilisateur modifié avec succès.',
     // 'login_success' => 'Connexion réussie.',
     // 'logout_success' => 'Déconnexion réussie.',

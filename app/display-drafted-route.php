@@ -7,7 +7,7 @@ include 'includes/_templates.php';
 getHtmlMessages($_SESSION);
 
 
-var_dump($_REQUEST);
+var_dump($_SESSION);
 
 $data = stripTagsArray($_REQUEST);
 $data["status"] = 0;
@@ -39,6 +39,6 @@ $newRoute = [
 if ($_REQUEST['action'] === 'createRoute') {
 
     addNewRouteWithoutImg($dbCo, $newRoute);
-    // addMessage("Route created");
-    // exit;
+    addMessage("insert_ok");
+    exit;
 }

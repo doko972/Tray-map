@@ -4,19 +4,19 @@ include 'includes/_database.php';
 include 'includes/_functions.php';
 include 'includes/_config.php';
 include 'includes/_templates.php';
-getHtmlMessages($_SESSION);
 
 
 var_dump($_REQUEST);
 
+
 $data = stripTagsArray($_REQUEST);
-$data["status"]=1;
+$data["status"] = 1;
 
 $newRoute = [
     "title" => $data['title'],
-    "distance" =>  numericInt($data['distance']),
-    "difficulty" =>  numericInt($data['difficulty_name']),
-    "status" => numericInt($data['status']),
+    "distance" =>  numericInt($data['distance'],"create-route.php"),
+    "difficulty" =>  numericInt($data['difficulty_name'],"create-route.php"),
+    "status" => numericInt($data['status'],"create-route.php"),
     // "idPerson" =>  numericInt($data['idUser']),
     "idPerson" => 1,
     "discription" => $data['discription'],
@@ -39,6 +39,6 @@ $newRoute = [
 if ($_REQUEST['action'] === 'createRoute') {
 
     addNewRouteWithoutImg($dbCo, $newRoute);
-    addMessage("Route created");
+    addMessage("insert_ok");
     exit;
 }

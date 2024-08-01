@@ -38,8 +38,12 @@ function addError(string $errorMsg): void
  */
 function addMessage(string $message): void
 {
-    $_SESSION['msg'] = $message;
+    if (!isset($_SESSION['msg'])) {
+        $_SESSION['msg'] = [];
+    }
+    $_SESSION['msg'][] = $message;
 }
+
 
 
 function redirectTo(string $url = "index.php"): void
@@ -329,17 +333,17 @@ function getRoutesBySearchParam(PDO $dbCo, array $data): array
 /**
  * if the value isnt numeric will call addError() and redirectTo()
  * @param mixed $value 
- * @return int 
+ * @return int the int value of the input.
  */
-function numericInt($value): int
+function numericInt($value, $redirectURL): ?int
 {
     if (!isset($value)) {
         addError('set_KO');
-        redirectTo();
+        redirectTo($redirectURL);
     }
     if (!is_numeric($value)) {
         addError('numeric_KO');
-        redirectTo();
+        redirectTo($redirectURL);
     }
     return intval($value);
 }
