@@ -321,8 +321,12 @@ function getRoutesBySearchParam(PDO $dbCo, array $data): array
  */
 function numericInt($value): int
 {
+    if(!isset($value)){
+        addError('set_KO');
+        redirectTo();
+    }
     if (!is_numeric($value)) {
-        addError('Numeric_KO');
+        addError('numeric_KO');
         redirectTo();
     }
    return intval($value);
@@ -369,7 +373,7 @@ function getRouteDetails(PDO $dbCo, $idRoute)
 
 // INSERT INTO table (nom_colonne_1, nom_colonne_2, ...
 //  VALUES ('valeur 1', 'valeur 2', ...)
-function addNewRouteWithoutImg(PDO $dbCo, $idUser, $data)
+function addNewRouteWithoutImg(PDO $dbCo, $data)
 {
     $query = $dbCo->prepare("INSERT INTO route (title, distance, difficulty,
     status, id_person, description,time_stamp )

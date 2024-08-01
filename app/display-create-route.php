@@ -11,16 +11,17 @@ var_dump($_REQUEST);
 $dataStrip = stripTagsArray($_REQUEST);
 
 $newRoute = [
-  "title" =>  $data['title'],
-        "distance" => $data['distance'],
-        "difficulty" => $data['difficulty_name'],
-        "status" => $data['status'],
-        "idPerson" => $data['idUser'],
-        "discription" => $data['discription']
+    "title" => $data['title'],
+    "distance" =>  numericInt($data['distance']),
+    "difficulty" =>  numericInt($data['difficulty_name']),
+    "status" =>  numericInt($data['status']),
+    // "idPerson" =>  numericInt($data['idUser']),
+    "idPerson" => 1,
+    "discription" => $data['discription']
 
-]
+];
 
 if ($_REQUEST['action'] === 'createRoute') {
 
-
+    addNewRouteWithoutImg($dbCo, $newRoute);
 }
