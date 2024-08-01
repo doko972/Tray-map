@@ -160,8 +160,7 @@ function AddsHtmlClassRoute($classRoute): string
     return '<div class="range_radio-alg range_radio-alg-v">'
     . '<label for="' . $classRoute["class_name"] . '">' 
     . $classRoute["class_name"] . '</label>' 
-    .'<input type="radio" id="' . $classRoute["class_name"] . '" name="class_route" value="' 
-    . $classRoute["id_class_route"] . '">'
+    .'<input type="radio" id="' . $classRoute["class_name"] . '" name="class_route" value="' . $classRoute["id_class_route"] . '">'
     . '</div>';
 }
 

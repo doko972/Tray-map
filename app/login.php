@@ -8,69 +8,43 @@ include 'includes/_functions.php';
 include 'includes/_templates.php';
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    try {
-        $query = $dbCo->prepare("SELECT password FROM person WHERE email = :email");
-        $query->execute(['email' => $email]);
-        $user = $query->fetch();
-
-        if ($user && password_verify($password, $user['password'])) {
-            $_SESSION['email'] = $email;
-            header("Location: index.php");
-            exit();
-        } else {
-            $_SESSION['message'] = "Email ou mot de passe incorrect.";
-            header("Location: login.php");
-            exit();
-        }
-    } catch (PDOException $e) {
-        $_SESSION['message'] = "Erreur lors de la connexion : " . $e->getMessage();
-        header("Location: login.php");
-        exit();
-    }
-}
+processLoginAttempt($dbCo); 
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>page de connection</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Page de connexion</title> 
+
+    <link rel="stylesheet" href="./file.scss//main.scss">
+
 </head>
 
 <body>
     <img class="login-img" src="./img//MinLogo 2.png" alt="logo">
 
-
     <form class="login-form" action="" method="post">
-    <?php
-if (isset($_SESSION['message'])) {
-    echo "<p class='error-message'>" . $_SESSION['message'] . "</p>";
-    unset($_SESSION['message']);
-}
-?>
-    <label class="form-label" for="email">Email:</label>
-    <input class="form-input" placeholder="Votre Mail" type="email" id="email" name="email" required><br><br>
-    <label class="form-label"  for="password">Mot de passe:</label>
-    <input class="form-input" placeholder="Votre mot de passe" type="password" id="password" name="password" required><br><br>
-
-        <button class="login-btn btn" type="submit">Connection</button>
+        <?php 
+        
+        if (isset($_SESSION['message'])) {
+            echo "<p class='error-message'>" . $_SESSION['message'] . "</p>";
+            unset($_SESSION['message']);  
+        }
+        ?>
+        <label class="form-label" for="email">Email:</label>
+        <input class="form-input" placeholder="Votre Mail" type="email" id="email" name="email" required><br><br>
+        <label class="form-label" for="password">Mot de passe:</label>
+        <input class="form-input" placeholder="Votre mot de passe" type="password" id="password" name="password" required><br><br>
+        
+        <button class="login-btn" type="submit">Connection</button>
         <a class="forgot-lnk" href="#">Mot de passe oublié ?</a>
     </form>
 
-
     <p class="login-txt">Vous n'avez pas de compte ?</p>
     <a href="createAcc.php"><button class="login-btn2">Créer votre compte</button></a>
-
     <a class="home-lnk" href="index.php">Retour à l'accueil</a>
-
 </body>
-
 </html>
