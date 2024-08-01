@@ -1,8 +1,8 @@
 /*RANGE*/
 .range-container {
   padding: 0 1.25rem 1.25rem 1.25rem;
-  margin: auto;
-  width: 18.75rem;
+  margin: 1rem;
+  width: 18rem;
   background-color: var(--grey-d);
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -78,6 +78,7 @@ input[type="search"]:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 
