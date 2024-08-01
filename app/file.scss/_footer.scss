@@ -1,0 +1,33 @@
+.footer-container {
+    background-color: var(--black);
+    border-top: var(--white) 1px solid;
+    display: grid;
+    grid-template-rows: 30% 30% 30%;
+    padding: 2rem;
+    margin-bottom: 0;
+  }
+  
+  .footer-txt {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    gap: 4rem;
+    line-height: 2rem;
+  }
+  .footer-lnk {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 1rem;
+  }
+  .footer-txt-dwn {
+    margin-bottom: 5rem;
+  }
+  .footer-img {
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer-soc-img {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 1.5rem;
+  }

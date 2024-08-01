@@ -1,0 +1,42 @@
+.trail-create {
+    padding: 2rem;
+  }
+  
+  .trail-create-img {
+    width: 100%;
+  }
+  
+  .trail-create-ttl,
+  .trail-create-txt {
+    font-family: "Broaek - Thin";
+    color: var(--white);
+    margin-bottom: 3rem;
+  }
+  
+  
+  
+  .trail-card {
+    padding: 1.5rem;
+    background-color: var(--white);
+    margin: 1rem 1rem 2rem 1rem;
+    border-radius: 0.5rem;
+  }
+  
+  .trail-card-img {
+    width: 100%;
+  }
+  
+  .trail-card-txt {
+    color: var(--black);
+    font-family: "Broaek - Thin";
+  }
+  .trail-card-ttl {
+    font-size: 1.5rem;
+    font-family: "Broaek - Thin";
+  }
+  .trail-info {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 2rem;
+    align-items: center;
+  }

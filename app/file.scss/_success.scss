@@ -1,0 +1,22 @@
+.success-txt {
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 6rem;
+    font-size: 1.5rem;
+  }
+  
+  .message {
+    color: var(--white);
+    margin-left: 2rem;
+  }
+  .success-lnk {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .success-home-lnk,
+  .success-txt2 {
+    color: var(--white);
+  }

@@ -1,0 +1,121 @@
+.header-container {
+    background-color: var(--black);
+    display: grid;
+    grid-template-columns: 70% 30%;
+    height: 92px;
+    border-bottom: var(--white) 1px solid;
+  }
+  
+  .header-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -0.3rem;
+    margin-right: 50px;
+    gap: 50px;
+  }
+  
+  .header-logo {
+    margin-top: 25px;
+    margin-left: 30px;
+  }
+  
+  .menu-toggle {
+    height: 16px;
+    width: 16px;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: visible;
+    z-index: 2;
+  
+    .menu-toggle-bar,
+    .menu-toggle-bar:before,
+    .menu-toggle-bar:after {
+      background: var(--green);
+      display: block;
+      height: 3px;
+      opacity: 1;
+      position: absolute;
+      transition: 0.3s ease-in-out;
+    }
+  
+    .menu-toggle-bar:before,
+    .menu-toggle-bar:after {
+      content: "";
+    }
+  
+    .menu-toggle-bar:before {
+      left: 0px;
+      top: -10px;
+      width: 27px;
+    }
+  
+    .menu-toggle-bar {
+      right: 0px;
+      top: 13px;
+      width: 27px;
+    }
+  
+    .menu-toggle-bar:after {
+      left: 0px;
+      top: 10px;
+      width: 27px;
+    }
+  
+    &.close {
+      .menu-toggle-bar:before {
+        top: 0px;
+        transform: rotate(90deg);
+        width: 27px;
+      }
+  
+      .menu-toggle-bar {
+        transform: rotate(-45deg);
+        top: 13px;
+        width: 27px;
+      }
+  
+      .menu-toggle-bar:after {
+        top: 0px;
+        left: 0;
+        transform: rotate(90deg);
+        opacity: 0;
+        width: 0;
+      }
+    }
+  }
+  
+  #menu {
+    z-index: 1;
+    min-width: 90%;
+    min-height: 50%;
+    position: fixed;
+    top: 0;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    text-align: center;
+    padding-top: 20px;
+    transition: all 0.2s ease-in-out;
+  
+    &.overlay {
+      visibility: visible;
+      opacity: 1;
+      padding-top: 100px;
+      background: var(--black);
+      border-radius: 1rem;
+    }
+  
+    .menu-container {
+      padding: 0;
+    }
+  
+    .menu-container-lnk {
+      color: var(--green);
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-decoration: none;
+      font-family: "Broaek - Thin";
+    }
+  }
