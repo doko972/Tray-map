@@ -1,60 +1,59 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  
+  margin: 2rem;
+  background-color: var(--white);
+  padding: 2rem 3rem 2rem 2rem;
+  border-radius: 10px;
+}
 .btn {
-    display: inline-block;
-    cursor: pointer;
-    background-color: var(--green);
-    border: none;
-    border-radius: 50px;
-    color: var(--black);
-    font-size: 1rem;
-    padding: 10px 24px 10px 24px;
-    margin-top: 1rem;
-    max-width: 12rem;
-    text-shadow: 0px 1px 0px var(--green);
-  }
-  
-  .btn:hover {
-    background-color: var(--black);
-    color: var(--white);
-    border-color: var(--green);
-  }
-  
-  .btn:active {
-    background-color: var(--green);
-    position: relative;
-    top: 1px;
-    border-color: var(--green);
-  }
+  display: inline-block;
+  cursor: pointer;
+  background-color: var(--green);
+  border: none;
+  border-radius: 50px;
+  color: var(--black);
+  font-size: 1rem;
+  padding: 10px 24px 10px 24px;
+  margin-top: 1rem;
+  max-width: 12rem;
+  text-shadow: 0px 1px 0px var(--green);
+}
 
-  .login-form {
-    display: flex;
-    flex-direction: column;
-     margin: 2rem;
-    background-color: var(--white);
-    padding: 2rem 3rem 2rem 2rem;
-    border-radius: 10px;
-    
-  }
-  .form-input {
-    border-radius: 10px;
-    border: var(--grey) 2px solid;
-    height: 49px;
-    width: 100%;
-    background-color: var(--white);
-    padding-left: 1rem;
-    font-family: "CabinCondensed";
-    font-size: 1rem;
-  }
-  .form-label {
-    margin-bottom: 1rem;
-    font-family: "CabinCondensed";
-    font-weight: 600;
-    
-  }
-  .home-lnk {
-    color: var(--white);
-    display: flex;
-    justify-content: center;
-    margin-top: 4rem;
-    margin-bottom: 7rem;
-    font-family: "CabinCondensed";
-  }
+.btn:hover {
+  background-color: var(--black);
+  color: var(--white);
+  border-color: var(--green);
+}
+
+.btn:active {
+  background-color: var(--green);
+  position: relative;
+  top: 1px;
+  border-color: var(--green);
+}
+
+.form-input {
+  border-radius: 10px;
+  border: var(--grey) 2px solid;
+  height: 49px;
+  width: 100%;
+  background-color: var(--white);
+  padding-left: 1rem;
+  font-family: "CabinCondensed";
+  font-size: 1rem;
+}
+.form-label {
+  margin-bottom: 1rem;
+  font-family: "CabinCondensed";
+  font-weight: 600;
+}
+.home-lnk {
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+  margin-bottom: 7rem;
+  font-family: "CabinCondensed";
+}
