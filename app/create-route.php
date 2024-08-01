@@ -41,7 +41,7 @@ include 'includes/_templates.php';
            write a discription for the path.
         </textarea>
         </div>
-        <button class="create-route-submit--publish" class="range-btn btn" type="submit" formaction="display-published-route">Publish</button>
-        <button class="create-route-submit--draft" class="range-btn btn" type="submit" formaction="display-drafted-route">Draft</button>
+        <button class="create-route-submit--publish" class="range-btn btn" type="submit" formaction="display-published-route.php">Publish</button>
+        <button class="create-route-submit--draft" class="range-btn btn" type="submit" formaction="display-drafted-route.php">Draft</button>
     </div>
 </form>
