@@ -57,3 +57,10 @@ if ($_REQUEST['action'] === 'search') {
     }
 }
 ?>
+
+<?php include 'range.php'; ?>
+    <?php include 'footer.php'; ?>
+    <script src="./js/burger.js"></script>
+</body>
+
+</html>
