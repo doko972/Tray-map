@@ -4,7 +4,7 @@ $globalUrl = 'http://localhost:8080';
 
 $errors = [
     // 'csrf' => 'Votre session est invalide.',
-    // 'referer' => 'D\'où venez vous ?',
+    'referer' => 'D\'où venez vous ?',
     // 'insert_ko' => 'Erreur lors de la sauvegarde de l\'utilisateur.',
     // 'update_ko' => 'Erreur lors de la modification de l\'utilisateur.',
     // 'delete_ko' => 'Erreur lors de la suppression de l\'utilisateur.',

@@ -267,7 +267,6 @@ function searchRouteByName(PDO $dbCo, string $title): ?array
  */
 function constructSqlSearchRoute($data): array
 {
-    var_dump($data);
     $bind = [];
     $request = [];
     $startRequest = "SELECT id_route FROM route WHERE";
@@ -415,3 +414,4 @@ function addNewRouteWithoutImg(PDO $dbCo, $data)
     }
     return $route;
 }
+

@@ -6,17 +6,16 @@ echo getHtmlErrors($errors);
 
 ?>
 <section>
-    <div class="range-container">
-        <form action="search-route.php" method="POST">
-            <form class="range-search-dy" action="search-route.php" method="POST">
-                <input type="hidden" id="token" name="token" value="<?= $_SESSION['token'] ?>">
+    <div >
+        <form class="range-container" action="search-route.php" method="POST">
+            <input type="hidden" name="action" value="search">
+            <input type="hidden" id="token" name="token" value="<?= $_SESSION['token'] ?>">
+            <div class="range-options">
                 <input class="search-form" type="text" placeholder="Rechercher votre ville..." name="title">
-                <input type="hidden" name="action" value="search">
-                <input type="hidden" name="action" value="search">
                 <button type="submit" class="search-btn">
-                    <img src="img/loupe.png" alt="Recherche" class="search-icon">
-                </button>
-            </form>
+                <img src="img/loupe.png" alt="Recherche" class="search-icon">
+             </button>
+            </div>
             <div class="range-options">
                 <div class="range-choice">
                     <div class="range_radio-ad">
