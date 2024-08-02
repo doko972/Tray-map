@@ -18,7 +18,7 @@
                 <a class="footer-lnk" href="#">Réglement</a>
             </div>
             <div class="footer-txt-dwn">
-                <a class="footer-lnk" href="#">Nopus contacter</a><br>
+                <a class="footer-lnk" href="#">Nous contacter</a><br>
                 <a class="footer-lnk" href="#">Foire aux questions</a><br>
                 <a class="footer-lnk" href="#">Créer un compte</a><br>
                 <a class="footer-lnk" href="#">Signaler un contenu</a>
