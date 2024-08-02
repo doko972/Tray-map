@@ -45,3 +45,9 @@ include 'includes/_templates.php';
         <button class="create-route-submit--draft" class="range-btn btn" type="submit" formaction="display-drafted-route.php">Draft</button>
     </div>
 </form>
+
+<?php include 'footer.php'; ?>
+        <script src="./js/burger.js"></script>
+</body>
+
+</html>

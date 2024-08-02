@@ -263,7 +263,7 @@ function searchRouteByName(PDO $dbCo, string $title): ?array
 /**
  * construct sql request from search params of routes.
  * @param array $inputData
- * @return array
+ * @return array  array of id_routes
  */
 function constructSqlSearchRoute($data): array
 {
