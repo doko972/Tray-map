@@ -6,8 +6,9 @@ echo getHtmlErrors($errors);
 
 ?>
 <section>
-    <div >
-        <form class="range-container" action="search-route.php" method="POST">
+    <div class="range-container">
+        <form class="range-search-dy" action="search-route.php" method="POST">
+            <input class="search-form" type="text" placeholder="Rechercher votre ville..." name="search">
             <input type="hidden" name="action" value="search">
             <input type="hidden" id="token" name="token" value="<?= $_SESSION['token'] ?>">
             <div class="range-options">

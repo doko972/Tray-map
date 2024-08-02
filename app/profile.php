@@ -17,12 +17,10 @@ include 'includes/_templates.php';
 <body>
     <?php include 'header.php'; ?>
     <main>
-        <section class="top-container">
-            <div>
-                <p>Profil</p>
-                <a href=""><img src="./img/edit.png" alt="éditer"></a>
-            </div>
-            <img class="profile-img" src="img/profile-photo.png" alt="Photo de l'utulisateur">
+        <section class="container-bio">
+            <img class="profile-img" src="img/profile-photo.png" alt="Image de l'utilisateur">
+        </section>
+        <section>
 
         </section>
     </main>
