@@ -55,7 +55,7 @@ if (!$_REQUEST['action'] === 'search') {
                     echo getHtmlProduct($route[0]);
                 }
             }
-            echo "<p class='notif-error'>Il n'y a pas de résultat.</p>";
+            echo "<p class='notif-error'>Il n'y a pas plus de résultat.</p>";
         }
         ?>
 
