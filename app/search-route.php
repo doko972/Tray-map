@@ -8,11 +8,10 @@ include 'includes/_templates.php';
 // if (!$_REQUEST['action'] === 'search') {
 
 //     addError("referer");
-//     redirectTo("index.php");
-//     exit;
+//     redirectTo();
 // }
 
-// preventCSRF();
+preventCSRF();
 
 ?>
 
