@@ -5,11 +5,12 @@ include 'includes/_functions.php';
 include 'includes/_config.php';
 include 'includes/_templates.php';
 
-if (!$_REQUEST['action'] === 'search') {
+// if (!$_REQUEST['action'] === 'search') {
 
-    addError("referer");
-    redirectTo();
-}
+//     addError("referer");
+//     redirectTo("index.php");
+//     exit;
+// }
 
 // preventCSRF();
 
@@ -23,6 +24,7 @@ if (!$_REQUEST['action'] === 'search') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trail-Map</title>
     <link rel="stylesheet" href="./file.scss//main.scss">
+    <link rel="stylesheet" href="./file.scss//range.css">
 </head>
 
 <body>
@@ -41,7 +43,9 @@ if (!$_REQUEST['action'] === 'search') {
                 ducimus aspernatur, enim corrupti dolorum doloribus atque delectus! Fugit, aliquid tenetur?</p>
             <button class="trail-create-btn btn">Créer un parcours</button>
         </section>
-
+        <div class="container-search">
+            <?php include 'range.php'; ?>
+        </div>
         <?php
 
         if ($_REQUEST['action'] === 'search') {

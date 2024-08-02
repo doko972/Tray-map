@@ -13,6 +13,7 @@ include 'includes/_templates.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trails Show card</title>
     <link rel="stylesheet" href="./file.scss//main.scss">
+    <link rel="stylesheet" href="./file.scss//range.css">
 </head>
 
 <body>

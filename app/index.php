@@ -14,10 +14,11 @@ generateToken();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trail-Map</title>
     <link rel="stylesheet" href="./file.scss//main.scss">
+    <link rel="stylesheet" href="./file.scss//range.css">
 </head>
 
 <body>
-<?php include 'header.php'; ?>
+    <?php include 'header.php'; ?>
     <main>
         <section>
             <h1 class="main-ttl">trailshare - <br> la communauté des amateurs de randonnées et de cyclotourisme</h1>
@@ -32,8 +33,11 @@ generateToken();
                 ducimus aspernatur, enim corrupti dolorum doloribus atque delectus! Fugit, aliquid tenetur?</p>
             <button class="trail-create-btn btn">Créer un parcours</button>
         </section>
+        <section>
+            <?php include 'range.php';
+            ?>
+        </section>
     </main>
-    <?php include 'range.php'; ?>
     <?php include 'footer.php'; ?>
     <script src="./js/burger.js"></script>
 </body>

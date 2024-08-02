@@ -1,9 +1,30 @@
-.container-bio{
+.container-bio {
     width: 100%;
+    height: 600px;
 }
-.profile-img{
+
+.profile-img {
     width: 122px;
     height: 122px;
     border-radius: 5rem;
     border: 5px solid var(--white);
+    position: relative;
+    top: 170px;
+    left: 40%;
+}
+
+.profile-bck {
+    display: flex;
+    height: 230px;
+    width: 100%;
+    background-color: var(--green);
+}
+
+.profile-tte {
+    font-family: "Broaek - Thin";
+    font-size: 3.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--white);
 }

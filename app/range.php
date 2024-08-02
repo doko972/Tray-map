@@ -1,9 +1,9 @@
 <?php
 
 echo getHtmlMessages($messages);
-
 echo getHtmlErrors($errors);
 
+generateToken();
 ?>
 <section>
     <div >

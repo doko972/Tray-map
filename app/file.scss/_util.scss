@@ -43,6 +43,7 @@
     padding-left: 1rem;
     font-family: "CabinCondensed";
     font-size: 1rem;
+    margin-bottom: 1rem;
   }
   .form-label {
     margin-bottom: 1rem;
@@ -61,4 +62,7 @@
 
   .notif-error {
     color: var(--white);
+    font-family: CabinCondensed;
+    margin:3rem 0 3rem 6rem;
+
   }
