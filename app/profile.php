@@ -19,10 +19,11 @@ include 'includes/_templates.php';
     <main>
         <section class="container-bio">
             <div class="profile-bck">
-
-                <img class="profile-img" src="img/profile-photo.png" alt="Image de l'utilisateur">
+                <div class="profile-tte">
+                    <img class="profile-img" src="img/profile-photo.png" alt="Image de l'utilisateur">
+                    <h1 class="profile-tte_name">Paul Martin</h1>
+                </div>
             </div>
-       <h1 class="profile-tte">Paul Martin</h1>
         </section>
     </main>
     <?php include 'footer.php'; ?>

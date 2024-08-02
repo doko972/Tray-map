@@ -1,30 +1,53 @@
 .container-bio {
     width: 100%;
     height: 600px;
+    display: flex;
+    justify-content: center;
 }
 
 .profile-img {
-    width: 122px;
-    height: 122px;
-    border-radius: 5rem;
+    width: 244px;
+    height: 244px;
+    border-radius: 10rem;
     border: 5px solid var(--white);
     position: relative;
-    top: 170px;
-    left: 40%;
+    top: 100px;
+    left: 50%;
 }
 
 .profile-bck {
     display: flex;
+    justify-content: center;
     height: 230px;
     width: 100%;
     background-color: var(--green);
 }
+.profile-tte{
+    display: flex;
+    justify-content: center;
+}
 
-.profile-tte {
+.profile-tte_name {
     font-family: "Broaek - Thin";
-    font-size: 3.125rem;
+    // font-size: 3rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     color: var(--white);
+    margin-top: 26rem;
 }
+
+@media screen and (max-width: 768px) {
+    
+    .profile-img {
+        width: 122px;
+        height: 122px;
+        border-radius: 5rem;
+        position: relative;
+        top: 170px;
+        left: 50%;
+    }
+    .profile-tte_name {
+        font-size: 1.5rem;
+    }
+  }
