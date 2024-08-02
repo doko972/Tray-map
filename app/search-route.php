@@ -33,7 +33,7 @@ preventCSRF();
             <h1 class="main-ttl">Recherchez votre parcours</h1>
         </section>
 
-        <section class="trail-create">
+        <!-- <section class="trail-create">
             <h2 class="trail-create-ttl">Créez votre parcours</h2>
             <img class="trail-create-img" src="./img//Rectangle 61.png" alt="cycliste">
             <p class="trail-create-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi modi magni
@@ -41,7 +41,7 @@ preventCSRF();
                 amet repellendus numquam obcaecati in odio. Illum, blanditiis animi magni harum tempore explicabo alias
                 ducimus aspernatur, enim corrupti dolorum doloribus atque delectus! Fugit, aliquid tenetur?</p>
             <button class="trail-create-btn btn">Créer un parcours</button>
-        </section>
+        </section> -->
         <div class="container-search">
             <?php include 'range.php'; ?>
         </div>
