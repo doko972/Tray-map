@@ -15,8 +15,6 @@ if (!$_REQUEST['action'] === 'search') {
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -28,21 +26,41 @@ if (!$_REQUEST['action'] === 'search') {
 </head>
 
 <body>
-<?php include 'header.php'; ?>
-<main>
-<?php
+    <?php include 'header.php'; ?>
+    <main>
+        <section>
+            <h1 class="main-ttl">trailshare - <br> la communauté des amateurs de randonnées et de cyclotourisme</h1>
+        </section>
 
-if ($_REQUEST['action'] === 'search') {
+        <section class="trail-create">
+            <h2 class="trail-create-ttl">Créez votre parcours</h2>
+            <img class="trail-create-img" src="./img//Rectangle 61.png" alt="cycliste">
+            <p class="trail-create-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi modi magni
+                reprehenderit quibusdam quod deserunt laborum natus cumque harum nisi, quia aut architecto qui dicta
+                amet repellendus numquam obcaecati in odio. Illum, blanditiis animi magni harum tempore explicabo alias
+                ducimus aspernatur, enim corrupti dolorum doloribus atque delectus! Fugit, aliquid tenetur?</p>
+            <button class="trail-create-btn btn">Créer un parcours</button>
+        </section>
 
-    $dataStrip = stripTagsArray($_REQUEST);
-    $sqlResuest = constructSqlSearchRoute($dataStrip);
-    $idRoutes = getRoutesBySearchParam($dbCo, $sqlResuest);
-    foreach ($idRoutes as $value) {
-        $route = getRouteDetails($dbCo, $value['id_route']);
-        echo getHtmlProduct($route[0]);
-    }
-}
-?>
-</main>
+        <?php
+
+        if ($_REQUEST['action'] === 'search') {
+
+            $dataStrip = stripTagsArray($_REQUEST);
+            $sqlResuest = constructSqlSearchRoute($dataStrip);
+            $idRoutes = getRoutesBySearchParam($dbCo, $sqlResuest);
+            foreach ($idRoutes as $value) {
+                $route = getRouteDetails($dbCo, $value['id_route']);
+                if (!empty($route[0])) {
+                    echo getHtmlProduct($route[0]);
+                }
+            }
+            echo "<p class='notif-error'>Il n'y a pas plus de résultat.</p>";
+        }
+        ?>
+
+        <?php include 'footer.php'; ?>
+        <script src="./js/burger.js"></script>
 </body>
 
+</html>

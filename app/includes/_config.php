@@ -4,7 +4,7 @@ $globalUrl = 'http://localhost:8080';
 
 $errors = [
     // 'csrf' => 'Votre session est invalide.',
-    // 'referer' => 'D\'où venez vous ?',
+    'referer' => 'D\'où venez vous ?',
     // 'insert_ko' => 'Erreur lors de la sauvegarde de l\'utilisateur.',
     // 'update_ko' => 'Erreur lors de la modification de l\'utilisateur.',
     // 'delete_ko' => 'Erreur lors de la suppression de l\'utilisateur.',
@@ -15,7 +15,8 @@ $errors = [
     'select_ko' => 'error selection',
     'search_ko' => 'Voulez vous choisir des critic des researchs',
     'numeric_KO' => 'Ce champ ne doit pas être vide',
-    'isSet_KO'=>"this field should not be empty"
+    'isSet_KO'=>"this field should not be empty",
+    'research_ko' => "Il n'y a pas de résultat."
 ];
 
 $messages = [

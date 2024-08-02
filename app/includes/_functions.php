@@ -145,9 +145,9 @@ function getDifficulties(PDO $dbCo): array
 function AddsHtmlDifficulty($difficulty): string
 {
     return '<div class="range_radio-alg range_radio-alg-f">'
-    . '<label for="easy">' . $difficulty["name"] . '</label><br>'
-    . '<input type="radio" id="' . $difficulty["name"] . '" name="difficulty" value="' . $difficulty["id_difficulty"] . '">'
-    . '</div>';
+        . '<label for="easy">' . $difficulty["name"] . '</label><br>'
+        . '<input type="radio" id="' . $difficulty["name"] . '" name="difficulty" value="' . $difficulty["id_difficulty"] . '">'
+        . '</div>';
 }
 
 /**
@@ -158,10 +158,10 @@ function AddsHtmlDifficulty($difficulty): string
 function AddsHtmlClassRoute($classRoute): string
 {
     return '<div class="range_radio-alg range_radio-alg-v">'
-    . '<label for="' . $classRoute["class_name"] . '">' 
-    . $classRoute["class_name"] . '</label>' 
-    .'<input type="radio" id="' . $classRoute["class_name"] . '" name="class_route" value="' . $classRoute["id_class_route"] . '">'
-    . '</div>';
+        . '<label for="' . $classRoute["class_name"] . '">'
+        . $classRoute["class_name"] . '</label>'
+        . '<input type="radio" id="' . $classRoute["class_name"] . '" name="class_route" value="' . $classRoute["id_class_route"] . '">'
+        . '</div>';
 }
 
 
@@ -267,7 +267,6 @@ function searchRouteByName(PDO $dbCo, string $title): ?array
  */
 function constructSqlSearchRoute($data): array
 {
-    var_dump($data);
     $bind = [];
     $request = [];
     $startRequest = "SELECT id_route FROM route WHERE";
@@ -369,87 +368,6 @@ function paramsToInt($data): array
     }
     return $data;
 }
-
-function processLoginAttempt($dbCo)
-{
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-
-        try {
-            // Prepared Statement for Security
-            $stmt = $dbCo->prepare("SELECT password FROM person WHERE email = :email");
-            $stmt->bindParam(':email', $email);
-            $stmt->execute();
-            $user = $stmt->fetch();
-
-            // Password Verification
-            if ($user && password_verify($password, $user['password'])) {
-                // Successful Login
-                $_SESSION['email'] = $email;
-                header("Location: index.php");
-                exit();
-            } else {
-                // Failed Login
-                $_SESSION['message'] = "Email ou mot de passe incorrect.";
-                header("Location: login.php");
-                exit();
-            }
-        } catch (PDOException $e) {
-            // Error Handling
-            error_log("Error during login: " . $e->getMessage()); // Log the error for debugging
-            $_SESSION['message'] = "Erreur lors de la connexion.";  // User-friendly message
-            header("Location: login.php");
-            exit();
-        }
-    }
-}
-
-function processAccountCreation($dbCo)
-{
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $confirmPassword = $_POST['confirm_password'];
-
-        if ($password !== $confirmPassword) {
-            $_SESSION['message'] = "Les mots de passe ne correspondent pas.";
-            header('Location: createAcc.php');
-            exit;
-        }
-        if (!isset($_POST['terms'])) {
-            $_SESSION['message'] = "Vous devez accepter les conditions de confidentialité.";
-            header('Location: createAcc.php');
-            exit;
-        }
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $_SESSION['message'] = "Adresse email invalide.";
-            header('Location: createAcc.php');
-            exit;
-        }
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        try {
-
-            $stmt = $dbCo->prepare("INSERT INTO person (email, password, create_date, id_role) VALUES (:email, :password, NOW(), 1)");
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':password', $hashedPassword);
-            $stmt->execute();
-
-            $_SESSION['message'] = "Compte créé avec succès !";
-        } catch (PDOException $e) {
-
-            if ($e->errorInfo[1] == 1062) {
-                $_SESSION['message'] = "Cet email est déjà utilisé.";
-            } else {
-                error_log("Erreur lors de la création du compte : " . $e->getMessage());
-                $_SESSION['message'] = "Erreur lors de la création du compte.";
-            }
-        }
-        header('Location: success.php');
-        exit;
-    }
-}
-
 function getRouteDetails(PDO $dbCo, $idRoute)
 {
     $query = $dbCo->prepare("SELECT id_route, illustration_img, URL, alt, title, distance, difficulty, description
@@ -466,13 +384,12 @@ function getRouteDetails(PDO $dbCo, $idRoute)
         addError('select_ko');
         redirectTo();
     }
+ 
     return $route;
 }
 
 
 
-// INSERT INTO table (nom_colonne_1, nom_colonne_2, ...
-//  VALUES ('valeur 1', 'valeur 2', ...)
 function addNewRouteWithoutImg(PDO $dbCo, $data)
 {
     $query = $dbCo->prepare("INSERT INTO route (title, distance, difficulty,
