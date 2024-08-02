@@ -22,7 +22,7 @@ include 'includes/_templates.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trail-Map</title>
+    <title>Page de recherche de parcours</title>
     <link rel="stylesheet" href="./file.scss//main.scss">
     <link rel="stylesheet" href="./file.scss//range.css">
 </head>
@@ -31,7 +31,7 @@ include 'includes/_templates.php';
     <?php include 'header.php'; ?>
     <main>
         <section>
-            <h1 class="main-ttl">trailshare - <br> la communauté des amateurs de randonnées et de cyclotourisme</h1>
+            <h1 class="main-ttl">Recherchez votre parcours</h1>
         </section>
 
         <section class="trail-create">

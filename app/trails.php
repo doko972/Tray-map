@@ -11,7 +11,7 @@ include 'includes/_templates.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trails Show card</title>
+    <title>Trails Show route</title>
     <link rel="stylesheet" href="./file.scss//main.scss">
     <link rel="stylesheet" href="./file.scss//range.css">
 </head>
@@ -21,7 +21,7 @@ include 'includes/_templates.php';
     <main>
 
         <section>
-            <h1 class="main-ttl">trailshare - <br> la communauté des amateurs de randonnées et de cyclotourisme</h1>
+            <h1 class="main-ttl">Résultat de votre recherche</h1>
         </section>
         <?php include 'range.php'; ?>
         <?php
