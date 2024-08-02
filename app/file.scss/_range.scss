@@ -2,10 +2,13 @@
 .range-container {
   display: flex;
   flex-direction: column;
+  align-items: start;
+  // justify-content: start;
+
   padding: 0 1.25rem 1.25rem 1.25rem;
-  margin: 1rem;
-  width: 18rem;
-  background-color: var(--grey-d);
+  // margin: 0 auto;
+  // width: 18rem;
+  background-color: var(--white);
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   align-items: center;
@@ -18,12 +21,12 @@ form {
   display: flex;
   padding: 2px;
   border: 1px solid var(--grey);
-  background-color: var(--grey);
-  border-radius: 5px;
-  width: 20.625rem;
+  // background-color: var(--grey);
+  border-radius: 1rem;
+  // width: 20.625rem;
   margin-bottom: 1rem;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  // border-top-left-radius: 1rem;
+  // border-top-right-radius: 1rem;
 }
 
 input[type="search"] {
@@ -90,15 +93,20 @@ input[type="search"]:focus {
 .range-options {
   display: flex;
   flex-direction: column;
+  align-items: start;
+  // justify-content: center;
+  margin: 0 auto;
   gap: 20px;
   width: 100%;
 }
 
 .range-choice {
   display: flex;
+  align-items: s;
   gap: 10px;
   margin-top: 1rem;
 }
+
 .range-choice_rd {
   display: flex;
   gap: 10px;
@@ -124,6 +132,7 @@ input[type="search"]:focus {
   display: flex;
   align-items: center;
   gap: 10px;
+  color: var(--black);
   accent-color: var(--green);
 }
 
@@ -132,6 +141,7 @@ input[type="search"]:focus {
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  color: var(--black);
 }
 .range_radio-alg-v {
   margin-right: 1.7rem;
@@ -190,4 +200,11 @@ input[type="range"]::-webkit-slider-thumb {
   background-color: var(--black);
   color: var(--white);
 }
+
+.range-distance-label,
+.range-difficulty-label,
+.range-mode-label {
+  color: var(--black);
+}
+
 /*FIN CHAMPS DE RECHERCHE*/
